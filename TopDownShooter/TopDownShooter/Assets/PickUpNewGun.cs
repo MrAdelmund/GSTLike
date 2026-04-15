@@ -9,14 +9,11 @@ public class PickUpNewGun : MonoBehaviour
     public GameObject GunPickupPrefab;
     public Image gun1;
     public Image gun2;
-    // Start is called before the first frame update
     void Start()
     {
         gun1.enabled = true;
         gun2.enabled = false;
     }
-
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetButtonDown("ToggleGunSelect"))
@@ -43,13 +40,13 @@ public class PickUpNewGun : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        //Debug.Log(collision.gameObject.name);
-        float y = Input.GetAxisRaw("Vertical");
+        //float y = Input.GetAxisRaw("Vertical");
         int oldGunID = -1;
-        if (y < 0 && Input.GetButtonDown("SwapGun") && collision.gameObject.GetComponent<GunPickup>() != null)
+        if (/*y < 0 &&*/ Input.GetButton("SwapGun") && collision.gameObject.GetComponent<GunPickup>() != null)
         {
             
             int gunID = collision.gameObject.GetComponent<GunPickup>().gunIndex;
+            //if the selected gun is index 0 or 2 (slot 1 or both) switch out the first gun slot
             if(selectedGun == 0 || selectedGun == 2)
             {
                 
@@ -65,6 +62,7 @@ public class PickUpNewGun : MonoBehaviour
                 }
                 temp[gunID] = 1;
             }
+            //if the selected gun is index 1 switch out the second gun slot
             if (selectedGun == 1)
             {
 

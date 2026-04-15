@@ -11,7 +11,6 @@ public class GunPickup : MonoBehaviour
     public Sprite burst;
     public Sprite fire;
     public Sprite seek;
-    // Start is called before the first frame update
     void Start()
     {
         var gun1 = GetComponent<SpriteRenderer>();
@@ -31,11 +30,5 @@ public class GunPickup : MonoBehaviour
         {
             gun1.sprite = seek;
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
