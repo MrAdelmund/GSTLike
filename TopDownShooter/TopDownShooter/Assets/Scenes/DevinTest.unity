@@ -1064,6 +1064,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 8
   jumpForce: 15
+  extraFallMutiplyer: 2
+  groundCheckBoxCastSize: {x: 0.9, y: 0.1}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!50 &1200215425
 Rigidbody2D:
   serializedVersion: 4
