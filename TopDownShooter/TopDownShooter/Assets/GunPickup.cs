@@ -7,28 +7,18 @@ public class GunPickup : MonoBehaviour
 {
     [Tooltip ("0 is normal gun, 1 is burst, 2 is fireball, 3 is seek")]
     public int gunIndex;
-    public Sprite normal;
-    public Sprite burst;
-    public Sprite fire;
-    public Sprite seek;
+    [SerializeField] Sprite[] gunTypeSprites;
     void Start()
     {
-        var gun1 = GetComponent<SpriteRenderer>();
-        if (gunIndex == 0)
+        if (gunIndex > gunTypeSprites.Length)
         {
-            gun1.sprite = normal;
+            Debug.LogWarning("Gun index is set to number outside bounds of array. Please fix, this will cause issues");
         }
-        if (gunIndex == 1)
+        else
         {
-            gun1.sprite = burst;
-        }
-        if (gunIndex == 2)
-        {
-            gun1.sprite = fire;
-        }
-        if (gunIndex == 3)
-        {
-            gun1.sprite = seek;
+            var gun1 = GetComponent<SpriteRenderer>();
+            //sets the rendered sprited of object based off of assinged gun index
+            gun1.sprite = gunTypeSprites[gunIndex];
         }
     }
 }

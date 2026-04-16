@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float moveSpeed = 4.0f;
-    public float jumpForce = 2.0f;
+    [SerializeField] float moveSpeed = 4.0f;
+    [SerializeField] float jumpForce = 2.0f;
     [SerializeField] float extraFallMutiplyer = 2;
-    [SerializeField] ContactFilter2D contactFilter;
-    bool isGrounded => rb.IsTouching(contactFilter);
+    [SerializeField] ContactFilter2D groundCheckContactFilter;
+    bool isGrounded => rb.IsTouching(groundCheckContactFilter);
     Rigidbody2D rb;
     float defaultGravity;
     bool jumpPressed = false;
@@ -44,6 +44,7 @@ public class PlayerMovement : MonoBehaviour
     }
     void AttemptJump()
     {
+        //checks if player is able to jump
         if (jumpPressed && isGrounded && !Input.GetButton("Fire1"))
         {
             rb.AddForce(new Vector2(0, jumpForce * 50));

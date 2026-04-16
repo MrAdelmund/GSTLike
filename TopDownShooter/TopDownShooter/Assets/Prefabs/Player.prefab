@@ -306,7 +306,7 @@ MonoBehaviour:
   moveSpeed: 8
   jumpForce: 15
   extraFallMutiplyer: 2
-  contactFilter:
+  groundCheckContactFilter:
     useTriggers: 0
     useLayerMask: 1
     useDepth: 0

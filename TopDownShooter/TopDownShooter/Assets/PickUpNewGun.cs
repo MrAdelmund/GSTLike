@@ -6,9 +6,9 @@ using UnityEngine.UI;
 public class PickUpNewGun : MonoBehaviour
 {
     public static int selectedGun = 0;
-    public GameObject GunPickupPrefab;
-    public Image gun1;
-    public Image gun2;
+    [SerializeField] GameObject GunPickupPrefab;
+    [SerializeField] Image gun1;
+    [SerializeField] Image gun2;
     void Start()
     {
         gun1.enabled = true;
