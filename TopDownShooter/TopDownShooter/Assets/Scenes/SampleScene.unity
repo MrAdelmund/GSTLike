@@ -3111,47 +3111,8 @@ PrefabInstance:
       objectReference: {fileID: 1406256149}
     - target: {fileID: 3045267472127859451, guid: 0f706ebc150de324c8af86fe46caa77f,
         type: 3}
-      propertyPath: gunImages.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3045267472127859451, guid: 0f706ebc150de324c8af86fe46caa77f,
-        type: 3}
-      propertyPath: gunSprites.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3045267472127859451, guid: 0f706ebc150de324c8af86fe46caa77f,
-        type: 3}
-      propertyPath: gunSprites.Array.data[0]
-      value: 
-      objectReference: {fileID: 21300000, guid: 0572f2d269e02074fb520a9a0f3c5105,
-        type: 3}
-    - target: {fileID: 3045267472127859451, guid: 0f706ebc150de324c8af86fe46caa77f,
-        type: 3}
-      propertyPath: gunSprites.Array.data[1]
-      value: 
-      objectReference: {fileID: 21300000, guid: 69e6dd18048f448468f91b402aacb46f,
-        type: 3}
-    - target: {fileID: 3045267472127859451, guid: 0f706ebc150de324c8af86fe46caa77f,
-        type: 3}
-      propertyPath: gunSprites.Array.data[2]
-      value: 
-      objectReference: {fileID: 21300000, guid: 268ff97ab0dd56243a34538b3a0db440,
-        type: 3}
-    - target: {fileID: 3045267472127859451, guid: 0f706ebc150de324c8af86fe46caa77f,
-        type: 3}
-      propertyPath: gunSprites.Array.data[3]
-      value: 
-      objectReference: {fileID: 21300000, guid: ce90b8c816501bb45a6f0bb7e5468726,
-        type: 3}
-    - target: {fileID: 6733721620728273204, guid: 0f706ebc150de324c8af86fe46caa77f,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6733721620728273204, guid: 0f706ebc150de324c8af86fe46caa77f,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
+      propertyPath: selectedGun2.Array.data[1]
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7832485232191035401, guid: 0f706ebc150de324c8af86fe46caa77f,
         type: 3}

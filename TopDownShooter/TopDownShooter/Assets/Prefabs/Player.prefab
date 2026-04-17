@@ -47,15 +47,16 @@ MonoBehaviour:
   prefab: {fileID: 2078439556668251974, guid: d467ce99d6207e7498eaee0717a430b3, type: 3}
   gun1: {fileID: 0}
   gun2: {fileID: 0}
-  normal: {fileID: 21300000, guid: 0572f2d269e02074fb520a9a0f3c5105, type: 3}
-  burst: {fileID: 21300000, guid: 69e6dd18048f448468f91b402aacb46f, type: 3}
-  fire: {fileID: 21300000, guid: 268ff97ab0dd56243a34538b3a0db440, type: 3}
-  seek: {fileID: 21300000, guid: ce90b8c816501bb45a6f0bb7e5468726, type: 3}
+  gunSprites:
+  - {fileID: 21300000, guid: 0572f2d269e02074fb520a9a0f3c5105, type: 3}
+  - {fileID: 21300000, guid: 69e6dd18048f448468f91b402aacb46f, type: 3}
+  - {fileID: 21300000, guid: 268ff97ab0dd56243a34538b3a0db440, type: 3}
+  - {fileID: 21300000, guid: ce90b8c816501bb45a6f0bb7e5468726, type: 3}
   bulletSpeed: 20
   bulletLifetime: 1
   shootDelay: 0.1
-  bullet1: 01000000000000000000000000000000
-  bullet2: 00000000000000000000000000000000
+  selectedGun1: 01000000
+  selectedGun2: 00010000
   gunType: seek
   gunCombos:
   - bullets:
@@ -109,7 +110,7 @@ Transform:
   m_GameObject: {fileID: 3415100917978556795}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.5, y: -0.25, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

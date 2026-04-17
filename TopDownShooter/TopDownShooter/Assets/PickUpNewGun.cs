@@ -40,43 +40,41 @@ public class PickUpNewGun : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        //float y = Input.GetAxisRaw("Vertical");
         int oldGunID = -1;
-        if (/*y < 0 &&*/ Input.GetButton("SwapGun") && collision.gameObject.GetComponent<GunPickup>() != null)
+        if (Input.GetButton("SwapGun") && collision.gameObject.GetComponent<GunPickup>() != null)
         {
             
             int gunID = collision.gameObject.GetComponent<GunPickup>().gunIndex;
             //if the selected gun is index 0 or 2 (slot 1 or both) switch out the first gun slot
             if(selectedGun == 0 || selectedGun == 2)
             {
-                
-                int[] temp = GetComponentInChildren<PlayerShoot>().bullet1;
+                bool[] temp = GetComponentInChildren<PlayerShoot>().selectedGun1;
                 for(int i = 0; i < temp.Length; i++)
                 {
-                    if (temp[i] != 0)
+                    if (temp[i])
                     {
                         oldGunID = i;
-                        temp[i] = 0;
+                        temp[i] = false;
                         break;
                     }
                 }
-                temp[gunID] = 1;
+                temp[gunID] = true;
             }
             //if the selected gun is index 1 switch out the second gun slot
             if (selectedGun == 1)
             {
 
-                int[] temp = GetComponentInChildren<PlayerShoot>().bullet2;
+                bool[] temp = GetComponentInChildren<PlayerShoot>().selectedGun2;
                 for (int i = 0; i < temp.Length; i++)
                 {
-                    if (temp[i] != 0)
+                    if (temp[i])
                     {
                         oldGunID = i;
-                        temp[i] = 0;
+                        temp[i] = false;
                         break;
                     }
                 }
-                temp[gunID] = 1;
+                temp[gunID] = true;
             }
             if (oldGunID > -1)
             {
@@ -87,6 +85,7 @@ public class PickUpNewGun : MonoBehaviour
                 obj.GetComponent<GunPickup>().gunIndex = oldGunID;
                 Destroy(collision.gameObject);
             }
+            PlayerShoot.pickedUpNewGun = true;
             Destroy(collision.gameObject);
         }
     }
