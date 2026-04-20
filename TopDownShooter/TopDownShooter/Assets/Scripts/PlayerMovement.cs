@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -12,18 +13,12 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D rb;
     float defaultGravity;
     bool jumpPressed = false;
+    bool firePressed = false;
+    float moveInputX;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         defaultGravity = rb.gravityScale;
-    }
-    private void Update()
-    {
-        //gets imput status for next fixed update call
-        if (Input.GetButtonDown("Jump"))
-        {
-            jumpPressed = true;
-        }
     }
     void FixedUpdate()
     {
@@ -31,25 +26,33 @@ public class PlayerMovement : MonoBehaviour
         AttemptJump();
         ExtraGravOnFall();
     }
-    void RunPlayerMovement()
+    public void RunPlayerMovement()
     {
         //allows player to move if they are not actively shooting
-        if (!Input.GetButton("Fire1"))
+        if (!firePressed)
         {
-            float x = Input.GetAxis("Horizontal");
             Vector2 vel = rb.velocity;
-            vel.x = x * moveSpeed;
+            if (moveInputX == 0)
+            {
+                vel.x = 0;
+            } else if (moveInputX > 0)
+            {
+                vel.x = moveSpeed;
+            } else if (moveInputX < 0)
+            {
+                vel.x = -moveSpeed;
+            }
             rb.velocity = vel;
         }
     }
-    void AttemptJump()
+    public void AttemptJump()
     {
         //checks if player is able to jump
-        if (jumpPressed && isGrounded && !Input.GetButton("Fire1"))
+        if (jumpPressed && isGrounded && !firePressed)
         {
             rb.AddForce(new Vector2(0, jumpForce * 50));
         }
-        //resets jumpPressed for next check
+        //resets jumpPressed to stop repeat tirggers
         jumpPressed = false;
     }
     void ExtraGravOnFall()
@@ -63,5 +66,17 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.gravityScale = defaultGravity;
         }
+    }
+    public void PlayerInputMove(InputAction.CallbackContext context)
+    {
+        moveInputX = context.ReadValue<Vector2>().x;
+    }
+    public void PlayerInputJump(InputAction.CallbackContext context)
+    {
+        jumpPressed = context.performed;
+    }
+    public void PlayerInputFire(InputAction.CallbackContext context)
+    {
+        firePressed = context.performed;
     }
 }

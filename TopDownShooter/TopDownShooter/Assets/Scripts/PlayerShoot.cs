@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 public class PlayerShoot : MonoBehaviour
 {
@@ -22,6 +23,8 @@ public class PlayerShoot : MonoBehaviour
     public Combination[] gunCombos;
     public static bool pickedUpNewGun = false;
     int lastSelectedGun;
+    Vector2 aimInput;
+    bool firePressed = false;
     void Start()
     {
         facingDir = 1;
@@ -186,7 +189,7 @@ public class PlayerShoot : MonoBehaviour
         }
         //shoot delay
         timer += Time.deltaTime;
-        if (Input.GetButton("Fire1") && timer > shootDelay)
+        if (firePressed && timer > shootDelay)
         {
             timer = 0;
             GameObject bullet = Instantiate(prefab, transform.position, Quaternion.identity);
@@ -198,6 +201,14 @@ public class PlayerShoot : MonoBehaviour
             shootDir.Normalize();
             bullet.transform.up = shootDir;
         }
+    }
+    public void PlayerInputAim(InputAction.CallbackContext context)
+    {
+        aimInput = context.ReadValue<Vector2>();
+    }
+    public void PlayerInputFire(InputAction.CallbackContext context)
+    {
+        firePressed = context.performed;
     }
 }
 [System.Serializable]

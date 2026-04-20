@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class PickUpNewGun : MonoBehaviour
@@ -9,6 +10,9 @@ public class PickUpNewGun : MonoBehaviour
     [SerializeField] GameObject GunPickupPrefab;
     [SerializeField] Image gun1;
     [SerializeField] Image gun2;
+    bool gunSelectPressed = false;
+    bool pickupGunPressed = false;
+
     void Start()
     {
         gun1.enabled = true;
@@ -88,5 +92,13 @@ public class PickUpNewGun : MonoBehaviour
             PlayerShoot.pickedUpNewGun = true;
             Destroy(collision.gameObject);
         }
+    }
+    public void PlayerInputToggleGun(InputAction.CallbackContext context)
+    {
+        gunSelectPressed = context.performed;
+    }
+    public void PlayerInputPickupGun(InputAction.CallbackContext context)
+    {
+        pickupGunPressed = context.performed;
     }
 }
