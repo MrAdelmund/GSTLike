@@ -36,9 +36,10 @@ public class PlayerShoot : MonoBehaviour
         //update gun being used and sprites when selected gun is changed/a new gun is picked up.
         if (PickUpNewGun.selectedGun != lastSelectedGun || pickedUpNewGun)
         {
+            //sets values for next check
             lastSelectedGun = PickUpNewGun.selectedGun;
             pickedUpNewGun = false;
-            Debug.Log("I ran!");
+            //updated gun & sprites
             UpdateGun();
         }
         UpdateShootingDirection();
