@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5a50c8b4edad1bb41b5e9dcf2f702625
+guid: fa796eecbea25b848a990a4178e648ce
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -37,18 +37,18 @@ TextureImporter:
     filterMode: 0
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
-    wrapW: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -95,49 +95,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: LowerSkyBackground2_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 108
-        width: 192
-        height: 108
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 948440c58fabd4844b75dd52251138cf
-      internalID: -1120643477
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LowerSkyBackground2_1
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 192
-        height: 108
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c0062def3ed76c94681f31a62f7238c7
-      internalID: 970691715
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -148,9 +106,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      LowerSkyBackground2_0: -1120643477
-      LowerSkyBackground2_1: 970691715
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
