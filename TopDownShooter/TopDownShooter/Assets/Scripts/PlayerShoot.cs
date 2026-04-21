@@ -151,8 +151,10 @@ public class PlayerShoot : MonoBehaviour
     void UpdateShootingDirection()
     {
         //gets imputs for calcuations
-        float x = Input.GetAxisRaw("Horizontal");
-        float y = Input.GetAxisRaw("Vertical");
+        float x = aimInput.x;
+        float y = aimInput.y;
+        //Debug.Log(x);
+        //Debug.Log(y);
         //calculates facing/shooting direction
         if (x != 0)
         {
@@ -189,6 +191,7 @@ public class PlayerShoot : MonoBehaviour
         }
         //shoot delay
         timer += Time.deltaTime;
+        Debug.Log(firePressed);
         if (firePressed && timer > shootDelay)
         {
             timer = 0;
@@ -209,6 +212,9 @@ public class PlayerShoot : MonoBehaviour
     public void PlayerInputFire(InputAction.CallbackContext context)
     {
         firePressed = context.performed;
+    }
+    public void OnFire(InputValue value) {
+        Debug.Log("firing");
     }
 }
 [System.Serializable]

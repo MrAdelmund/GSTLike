@@ -20,8 +20,9 @@ public class PickUpNewGun : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetButtonDown("ToggleGunSelect"))
+        if (gunSelectPressed)
         {
+            gunSelectPressed = false;
             selectedGun++;
             selectedGun %= 3;
             if(selectedGun == 0)
@@ -45,9 +46,9 @@ public class PickUpNewGun : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision)
     {
         int oldGunID = -1;
-        if (Input.GetButton("SwapGun") && collision.gameObject.GetComponent<GunPickup>() != null)
+        if (pickupGunPressed && collision.gameObject.GetComponent<GunPickup>() != null)
         {
-            
+            pickupGunPressed = false;
             int gunID = collision.gameObject.GetComponent<GunPickup>().gunIndex;
             //if the selected gun is index 0 or 2 (slot 1 or both) switch out the first gun slot
             if(selectedGun == 0 || selectedGun == 2)

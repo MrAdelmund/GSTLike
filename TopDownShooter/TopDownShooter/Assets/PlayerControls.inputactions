@@ -11,7 +11,7 @@
                     "type": "Value",
                     "id": "c9ff7e81-7979-4e3d-8c24-20d1bb20a033",
                     "expectedControlType": "Vector2",
-                    "processors": "",
+                    "processors": "NormalizeVector2",
                     "interactions": "",
                     "initialStateCheck": true
                 },
@@ -199,7 +199,7 @@
                 {
                     "name": "",
                     "id": "9c16dcf7-a80b-45bb-9af0-11d25425f968",
-                    "path": "<XInputController>/buttonEast",
+                    "path": "<XInputController>/rightShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
