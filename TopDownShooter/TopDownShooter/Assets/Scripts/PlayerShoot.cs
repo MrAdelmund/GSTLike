@@ -24,7 +24,10 @@ public class PlayerShoot : MonoBehaviour
     public static bool pickedUpNewGun = false;
     int lastSelectedGun;
     Vector2 aimInput;
+    Vector2 shootingDirection;
     bool firePressed = false;
+    bool lightsaberMode = false;
+    GameObject lightsaberObjectReference;
     void Start()
     {
         facingDir = 1;
@@ -45,7 +48,7 @@ public class PlayerShoot : MonoBehaviour
             //updated gun & sprites
             UpdateGun();
         }
-        UpdateShootingDirection();
+        TryShooting();
     }
     void UpdateImages()
     {
@@ -148,6 +151,17 @@ public class PlayerShoot : MonoBehaviour
         //assigns prefab to use based off buttlet 1 & 2 Id intex
         prefab = gunCombos[bullet1_ID].bullets[bullet2_ID];
     }
+    void TryShooting()
+    {
+        //shoot delay
+        timer += Time.deltaTime;
+        if (timer > shootDelay || lightsaberMode)
+        {
+            timer = 0;
+            UpdateShootingDirection();
+            Shoot();
+        }
+    }
     void UpdateShootingDirection()
     {
         //gets imputs for calcuations
@@ -189,22 +203,54 @@ public class PlayerShoot : MonoBehaviour
             pos.x = facingDir * startX;
             transform.localPosition = pos;
         }
-        //shoot delay
-        timer += Time.deltaTime;
-        Debug.Log(firePressed);
-        if (firePressed && timer > shootDelay)
+        shootingDirection = new Vector2(x, y);
+    }
+    void Shoot()
+    {
+        if (firePressed && !lightsaberMode)
         {
-            timer = 0;
             GameObject bullet = Instantiate(prefab, transform.position, Quaternion.identity);
             Vector2 shootDir;
-            if (y != 0)
-                shootDir = new Vector2(x, y);
+            if (shootingDirection.y != 0)
+                shootDir = new Vector2(shootingDirection.x, shootingDirection.y);
             else
                 shootDir = new Vector2(facingDir, 0);
             shootDir.Normalize();
             bullet.transform.up = shootDir;
+            //checks if the spawned prefab is a LightSaber
+            if (prefab.name == "LightSaber")
+            {
+                //"An elegant weapon for a more civilized time" - Obi-Wan Kenobi
+                lightsaberMode = true;
+                lightsaberObjectReference = bullet;
+            }
+
+        }
+        //does specific Lightsaber behavior if in lightsaber mode
+        else if (lightsaberMode == true)
+        {
+            //  READ ME
+            //the Lightsaber weapon has a different behavior compaired to other weapons
+            //the Lightsaber is a persisting projectile and just has it's rotation & position updated
+
+            //destorys Lightsaber if fire button is not pressed
+            if (!firePressed)
+            {
+                lightsaberMode = false;
+                Destroy(lightsaberObjectReference);
+            }
+            Vector2 shootDir;
+            if (shootingDirection.y != 0)
+                shootDir = new Vector2(shootingDirection.x, shootingDirection.y);
+            else
+                shootDir = new Vector2(facingDir, 0);
+            shootDir.Normalize();
+            //updates the curent spawned in lightsaber's rotation and position
+            lightsaberObjectReference.transform.up = shootDir;
+            lightsaberObjectReference.transform.position = transform.position;
         }
     }
+    //updaters for inputs
     public void PlayerInputAim(InputAction.CallbackContext context)
     {
         aimInput = context.ReadValue<Vector2>();
@@ -212,9 +258,6 @@ public class PlayerShoot : MonoBehaviour
     public void PlayerInputFire(InputAction.CallbackContext context)
     {
         firePressed = context.performed;
-    }
-    public void OnFire(InputValue value) {
-        Debug.Log("firing");
     }
 }
 [System.Serializable]

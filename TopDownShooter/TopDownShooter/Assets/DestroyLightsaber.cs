@@ -6,14 +6,11 @@ public class DestroyLightsaber : MonoBehaviour
 {
     float x = 0;
     float y = 0;
-    // Start is called before the first frame update
     void Start()
     {
         x = Input.GetAxisRaw("Horizontal");
         y = Input.GetAxisRaw("Vertical");
     }
-
-    // Update is called once per frame
     void Update()
     {
         float tempx = Input.GetAxisRaw("Horizontal");

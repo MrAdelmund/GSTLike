@@ -94,6 +94,7 @@ public class PickUpNewGun : MonoBehaviour
             Destroy(collision.gameObject);
         }
     }
+    //updaters for inputs
     public void PlayerInputToggleGun(InputAction.CallbackContext context)
     {
         gunSelectPressed = context.performed;

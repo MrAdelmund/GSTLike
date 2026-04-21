@@ -67,6 +67,7 @@ public class PlayerMovement : MonoBehaviour
             rb.gravityScale = defaultGravity;
         }
     }
+    //updaters for inputs
     public void PlayerInputMove(InputAction.CallbackContext context)
     {
         moveInputX = context.ReadValue<Vector2>().x;
