@@ -10,6 +10,7 @@ public class PickUpNewGun : MonoBehaviour
     [SerializeField] GameObject GunPickupPrefab;
     [SerializeField] Image gun1;
     [SerializeField] Image gun2;
+    //input variables
     bool gunSelectPressed = false;
     bool pickupGunPressed = false;
 

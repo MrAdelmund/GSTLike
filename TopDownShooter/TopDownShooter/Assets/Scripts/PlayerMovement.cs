@@ -43,6 +43,11 @@ public class PlayerMovement : MonoBehaviour
                 vel.x = -moveSpeed;
             }
             rb.velocity = vel;
+        }else if (firePressed && isGrounded)
+        {
+            //Quickly diminishes speed when the player starts shooting while
+            //walking on the ground, so they don't slide as much, but also don't suddenly stop.
+            rb.velocity = new Vector2(rb.velocity.x * 0.8f, 0);
         }
     }
     public void AttemptJump()
