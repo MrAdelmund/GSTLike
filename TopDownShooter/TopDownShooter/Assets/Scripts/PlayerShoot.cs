@@ -28,6 +28,8 @@ public class PlayerShoot : MonoBehaviour
     bool firePressed = false;
     bool lightsaberMode = false;
     GameObject lightsaberObjectReference;
+    int bullet1_ID = 0;
+    int bullet2_ID = 0;
     void Start()
     {
         facingDir = 1;
@@ -50,6 +52,7 @@ public class PlayerShoot : MonoBehaviour
         }
         TryShooting();
     }
+    //UpdateImages is only called at start, all it does is update both images
     void UpdateImages()
     {
         int bullet1_ID = -1;
@@ -92,64 +95,55 @@ public class PlayerShoot : MonoBehaviour
     //sets the bullet prefab to use based off currently selected gun(s)
     private void UpdateGun()
     {
-        int bullet1_ID = 0;
-        int bullet2_ID = 0;
-
+        bullet1_ID = 0;
+        bullet2_ID = 0;
         //For gun slot 1
         if (PickUpNewGun.selectedGun == 0)
         {
-            for (int i = 0; i < selectedGun1.Length; i++)
-            {
-                if (selectedGun1[i])
-                {
-                    bullet1_ID = i;
-                    bullet2_ID = 0;
-                    UpdateSprite(true, i);
-                    break;
-                }
-            }
+            UpdateGun1();
         }
         //For gun slot 2
         if(PickUpNewGun.selectedGun == 1)
         {
-            for (int i = 0; i < selectedGun2.Length; i++)
-            {
-                if (selectedGun2[i])
-                {
-                    bullet2_ID = i;
-                    UpdateSprite(false, i);
-                    break;
-                }
-            }
+            UpdateGun2();
             bullet1_ID = bullet2_ID;
             bullet2_ID = 0;
         }
         //For both gun slots
         if(PickUpNewGun.selectedGun == 2)
         {
-            for (int i = 0; i < selectedGun1.Length; i++)
-            {
-                if (selectedGun1[i])
-                {
-                    bullet1_ID = i;
-                    bullet2_ID = 0;
-                    UpdateSprite(true, i);
-                    break;
-                }
-            }
-            for (int i = 0; i < selectedGun2.Length; i++)
-            {
-                if (selectedGun2[i])
-                {
-                    bullet2_ID = i;
-                    bullet2_ID++;
-                    UpdateSprite(false, i);
-                    break;
-                }
-            }
+            UpdateGun1();
+            UpdateGun2();
         }
         //assigns prefab to use based off buttlet 1 & 2 Id intex
         prefab = gunCombos[bullet1_ID].bullets[bullet2_ID];
+    }
+    void UpdateGun1()
+    {
+        for (int i = 0; i < selectedGun1.Length; i++)
+        {
+            if (selectedGun1[i])
+            {
+                bullet1_ID = i;
+                bullet2_ID = 0;
+                UpdateSprite(true, i);
+                break;
+            }
+        }
+    }
+    void UpdateGun2()
+    {
+        for (int i = 0; i < selectedGun2.Length; i++)
+        {
+            if (selectedGun2[i])
+            {
+                bullet2_ID = i;
+                if (PickUpNewGun.selectedGun == 2)
+                    bullet2_ID++;
+                UpdateSprite(false, i);
+                break;
+            }
+        }
     }
     void TryShooting()
     {
@@ -167,8 +161,7 @@ public class PlayerShoot : MonoBehaviour
         //gets imputs for calcuations
         float x = aimInput.x;
         float y = aimInput.y;
-        //Debug.Log(x);
-        //Debug.Log(y);
+        Debug.Log(aimInput);
         //calculates facing/shooting direction
         if (x != 0)
         {
@@ -205,18 +198,18 @@ public class PlayerShoot : MonoBehaviour
         }
         shootingDirection = new Vector2(x, y);
     }
+    void UpdateShootingDirection2ElectricBoogaloo()
+    {
+        float x = aimInput.x;
+        float y = aimInput.y;
+
+    }
     void Shoot()
     {
         if (firePressed && !lightsaberMode)
         {
             GameObject bullet = Instantiate(prefab, transform.position, Quaternion.identity);
-            Vector2 shootDir;
-            if (shootingDirection.y != 0)
-                shootDir = new Vector2(shootingDirection.x, shootingDirection.y);
-            else
-                shootDir = new Vector2(facingDir, 0);
-            shootDir.Normalize();
-            bullet.transform.up = shootDir;
+            bullet.transform.up = CalcBulletOrientation();
             //checks if the spawned prefab is a LightSaber
             if (prefab.name == "LightSaber")
             {
@@ -239,16 +232,21 @@ public class PlayerShoot : MonoBehaviour
                 lightsaberMode = false;
                 Destroy(lightsaberObjectReference);
             }
-            Vector2 shootDir;
-            if (shootingDirection.y != 0)
-                shootDir = new Vector2(shootingDirection.x, shootingDirection.y);
-            else
-                shootDir = new Vector2(facingDir, 0);
-            shootDir.Normalize();
             //updates the curent spawned in lightsaber's rotation and position
-            lightsaberObjectReference.transform.up = shootDir;
+            lightsaberObjectReference.transform.up = CalcBulletOrientation();
             lightsaberObjectReference.transform.position = transform.position;
         }
+    }
+    Vector2 CalcBulletOrientation()
+    {
+        //calculates the orientation/direction that the bullet will be facing
+        Vector2 shootDir;
+        if (shootingDirection.y != 0)
+            shootDir = new Vector2(shootingDirection.x, shootingDirection.y);
+        else
+            shootDir = new Vector2(facingDir, 0);
+        shootDir.Normalize();
+        return shootDir;
     }
     //updaters for inputs
     public void PlayerInputAim(InputAction.CallbackContext context)
