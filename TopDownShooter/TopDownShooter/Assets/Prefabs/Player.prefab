@@ -129,20 +129,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aeead4be21f40f49a1eef49727a17dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 2078439556668251974, guid: d467ce99d6207e7498eaee0717a430b3, type: 3}
-  gun1: {fileID: 0}
-  gun2: {fileID: 0}
   gunSprites:
   - {fileID: 21300000, guid: 0572f2d269e02074fb520a9a0f3c5105, type: 3}
   - {fileID: 21300000, guid: 69e6dd18048f448468f91b402aacb46f, type: 3}
   - {fileID: 21300000, guid: 268ff97ab0dd56243a34538b3a0db440, type: 3}
   - {fileID: 21300000, guid: ce90b8c816501bb45a6f0bb7e5468726, type: 3}
-  bulletSpeed: 20
-  bulletLifetime: 1
+  gun1: {fileID: 0}
+  gun2: {fileID: 0}
   shootDelay: 0.1
-  selectedGun1: 01000000
-  selectedGun2: 00010000
-  gunType: seek
   gunCombos:
   - bullets:
     - {fileID: 2078439556668251974, guid: d467ce99d6207e7498eaee0717a430b3, type: 3}
@@ -154,7 +148,7 @@ MonoBehaviour:
     - {fileID: 1844695761959174378, guid: 870f50d25ccb3a34f96f4f248613add2, type: 3}
     - {fileID: 1844695761959174378, guid: 61c60ff2252d4374a85ebc9c5e8716cc, type: 3}
     - {fileID: 1844695761959174378, guid: 447da2a1aea962d46baefed2696c25c2, type: 3}
-    - {fileID: 1844695761959174378, guid: 913bee5cd681f274bb2fa9d99ffd17f3, type: 3}
+    - {fileID: 1844695761959174378, guid: 447da2a1aea962d46baefed2696c25c2, type: 3}
     - {fileID: 2078439556668251974, guid: aebabcadfe581ed40bff642b4c0d11ad, type: 3}
   - bullets:
     - {fileID: 2078439556668251974, guid: 57ba538a7a1685c4394bfed2b98e3e7e, type: 3}
@@ -167,7 +161,9 @@ MonoBehaviour:
     - {fileID: 2078439556668251974, guid: b42b9a82c03402449a34170297b67377, type: 3}
     - {fileID: 2078439556668251974, guid: aebabcadfe581ed40bff642b4c0d11ad, type: 3}
     - {fileID: 2078439556668251974, guid: 55c67d632bbd6774dbced9b2aa929a1e, type: 3}
-    - {fileID: 2078439556668251974, guid: aebabcadfe581ed40bff642b4c0d11ad, type: 3}
+    - {fileID: 2078439556668251974, guid: b42b9a82c03402449a34170297b67377, type: 3}
+  selectedGun1: 00010000
+  selectedGun2: 00000100
 --- !u!114 &8786514373326180172
 MonoBehaviour:
   m_ObjectHideFlags: 0
