@@ -47,7 +47,7 @@ public class PlayerShoot : MonoBehaviour
     }
     void UpdateSprite(bool assignToGun1, int spriteToAssign)
     {
-        //assigns sprites for ui based of provided index and weather to assign to gun1 or gun2 with provided bool
+        //assigns sprites for ui based of provided index and wether to assign to gun1 or gun2 with provided bool
         if (assignToGun1)
             gun1.sprite = gunSprites[spriteToAssign];
         else
@@ -78,6 +78,11 @@ public class PlayerShoot : MonoBehaviour
         }
         //assigns prefab to use based off buttlet 1 & 2 Id intex
         prefab = gunCombos[bullet1_ID].bullets[bullet2_ID];
+        //checks if the lightsaber weapon combo is still active, if not, it will exit the lightsaber state.
+        if (prefab.name != "LightSaber" && lightsaberMode)
+        {
+            ExitLightsaberState();
+        }
     }
     void UpdateGun1()
     {
@@ -121,7 +126,6 @@ public class PlayerShoot : MonoBehaviour
     {
         float x = Mathf.RoundToInt(aimInput.x);
         float y = Mathf.RoundToInt(aimInput.y);
-        //Debug.Log(x + " " + y);
         //updates facing direction
         if (x != 0)
             facingDir = x;
@@ -137,7 +141,16 @@ public class PlayerShoot : MonoBehaviour
     {
         if (firePressed && !lightsaberMode)
         {
-            GameObject bullet = Instantiate(prefab, transform.position, Quaternion.identity);
+            GameObject bullet;
+            if (prefab.name == "fire" || prefab.name == "StrongFire")
+            {
+                bullet = Instantiate(prefab, transform.position, Quaternion.identity, transform.parent);
+                bullet.GetComponent<BulletFlyWithParent>().parentRB = transform.parent.GetComponent<Rigidbody2D>();
+            }
+            else
+            {
+                bullet = Instantiate(prefab, transform.position, Quaternion.identity);
+            }
             bullet.transform.up = shootingDirection;
             //checks if the spawned prefab is a LightSaber
             if (prefab.name == "LightSaber")
@@ -158,13 +171,17 @@ public class PlayerShoot : MonoBehaviour
             //destorys Lightsaber if fire button is not pressed
             if (!firePressed)
             {
-                lightsaberMode = false;
-                Destroy(lightsaberObjectReference);
+                ExitLightsaberState();
             }
             //updates the curent spawned in lightsaber's rotation and position
             lightsaberObjectReference.transform.up = shootingDirection;
             lightsaberObjectReference.transform.position = transform.position;
         }
+    }
+    void ExitLightsaberState()
+    {
+        lightsaberMode = false;
+        Destroy(lightsaberObjectReference);
     }
     //updaters for inputs
     public void PlayerInputAim(InputAction.CallbackContext context)
