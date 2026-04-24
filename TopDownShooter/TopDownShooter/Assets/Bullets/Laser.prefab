@@ -127,7 +127,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 646079dd0bc3ad948a94ef117008cdf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 40
   bulletData: {fileID: -2553036736909789129}
 --- !u!70 &8233304241016394337
 CapsuleCollider2D:
@@ -303,7 +302,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 646079dd0bc3ad948a94ef117008cdf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 40
   bulletData: {fileID: -2553036736909789129}
 --- !u!70 &8239391909241203315
 CapsuleCollider2D:
@@ -479,7 +477,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 646079dd0bc3ad948a94ef117008cdf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 40
   bulletData: {fileID: -2553036736909789129}
 --- !u!70 &1597177469406357716
 CapsuleCollider2D:
@@ -577,7 +574,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLightsaber: 0
   isChaserFire: 0
+  parentFollowBehavior: 0
   bulletSpeed: 40
   firerate: 0.1
   destoryAfterDelay: 1
-  destroyAfterTime: 0.3
+  destroyAfterTime: 5

@@ -26,6 +26,8 @@ public class PlayerShoot : MonoBehaviour
     float firerate = 0.1f;
     bool doParentFollowBehavior = false;
     bool runLightsaberCode = false;
+    bool applyBulletSpread = false;
+    float bulletSpread = 0.1f;
     void Start()
     {
         facingDir = 1;
@@ -120,7 +122,7 @@ public class PlayerShoot : MonoBehaviour
     {
         //shoot delay
         timer += Time.deltaTime;
-        if (timer > firerate || lightsaberMode)
+        if (timer > firerate && firePressed || lightsaberMode)
         {
             timer = 0;
             UpdateShootingDirection();
@@ -139,12 +141,13 @@ public class PlayerShoot : MonoBehaviour
             shootingDirection = new Vector2(x, y);
         else
             shootingDirection = new Vector2(facingDir, 0);
+        shootingDirection.Normalize();
         //updates shooting direction
         transform.localPosition = shootingDirection;
     }
     void Shoot()
     {
-        if (firePressed && !lightsaberMode)
+        if (!lightsaberMode)
         {
             
             GameObject bullet = Instantiate(prefab, transform.position, Quaternion.identity);
@@ -153,19 +156,25 @@ public class PlayerShoot : MonoBehaviour
             {
                 RetrieveBulletData(bullet);
             }
+            //runs if parent follow behavior is needed (currently only on fire and fire + fire weapon combos)
             if (doParentFollowBehavior)
                 bullet.GetComponent<BulletFlyWithParent>().parentRB = transform.parent.GetComponent<Rigidbody2D>();
+            //runs if using lightsaber weapon
             if (runLightsaberCode)
             {
                 //"An elegant weapon for a more civilized time" - Obi-Wan Kenobi
                 lightsaberMode = true;
                 lightsaberObjectReference = bullet;
             }
+            if (applyBulletSpread)
+            {
+                shootingDirection = (shootingDirection + new Vector2(Random.Range(-bulletSpread, bulletSpread), Random.Range(-bulletSpread, bulletSpread))).normalized;
+            }
             //sets the direction for the bullet to go in
             bullet.transform.up = shootingDirection;
         }
         //does specific Lightsaber behavior if in lightsaber mode
-        else if (lightsaberMode == true)
+        else
         {
             //  READ ME
             //the Lightsaber weapon has a different behavior compaired to other weapons
@@ -184,18 +193,12 @@ public class PlayerShoot : MonoBehaviour
     void RetrieveBulletData(GameObject objectToRetrieveDataFrom)
     {
         BulletData BD = objectToRetrieveDataFrom.GetComponent<BulletData>();
-        //updates firerate
+        //updates all bullet data variabales
         firerate = BD.firerate;
-        //checks if the spawned bullet has parentFollowBehavior enabled
-        if (BD.parentFollowBehavior)
-            doParentFollowBehavior = true;
-        else
-            doParentFollowBehavior = false;
-        //checks if the spawned bullet is a lightsaber
-        if (BD.isLightsaber)
-            runLightsaberCode = true;
-        else
-            runLightsaberCode  = false;
+        applyBulletSpread = BD.bulletSpread;
+        bulletSpread = BD.bulletSpreadAmount;
+        doParentFollowBehavior = BD.parentFollowBehavior;
+        runLightsaberCode = BD.isLightsaber;
         //turns off this chunk of code (only needs to run once whenever the weapon gets changed)
         retrieveBD = false;
     }
