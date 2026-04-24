@@ -141,15 +141,10 @@ public class PlayerShoot : MonoBehaviour
     {
         if (firePressed && !lightsaberMode)
         {
-            GameObject bullet;
+            GameObject bullet = Instantiate(prefab, transform.position, Quaternion.identity);
             if (prefab.name == "fire" || prefab.name == "StrongFire")
             {
-                bullet = Instantiate(prefab, transform.position, Quaternion.identity, transform.parent);
                 bullet.GetComponent<BulletFlyWithParent>().parentRB = transform.parent.GetComponent<Rigidbody2D>();
-            }
-            else
-            {
-                bullet = Instantiate(prefab, transform.position, Quaternion.identity);
             }
             bullet.transform.up = shootingDirection;
             //checks if the spawned prefab is a LightSaber

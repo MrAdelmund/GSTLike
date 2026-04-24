@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 9029014827583108606}
   - component: {fileID: 4760665303059430690}
   - component: {fileID: -3619296799923221005}
-  - component: {fileID: -2231873066865487137}
+  - component: {fileID: 8844863738121608313}
   - component: {fileID: -1045027876932988297}
   - component: {fileID: 150811837900482569}
   m_Layer: 8
@@ -181,7 +181,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 15
---- !u!114 &-2231873066865487137
+  bulletData: {fileID: 8844863738121608313}
+--- !u!114 &8844863738121608313
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -190,10 +191,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 2078439556668251974}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 155f15bebba33f34bba62f694f623475, type: 3}
+  m_Script: {fileID: 11500000, guid: f767d4f4a403236458b8b0281b07fc4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerToDestroy: 0.5
+  isLightsaber: 0
+  isChaserFire: 0
+  bulletSpeed: 15
+  firerate: 0.1
+  destoryAfterDelay: 1
+  destroyAfterTime: 0.5
 --- !u!95 &-1045027876932988297
 Animator:
   serializedVersion: 5

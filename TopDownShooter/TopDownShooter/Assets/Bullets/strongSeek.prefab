@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 9029014827583108606}
   - component: {fileID: 4760665303059430690}
   - component: {fileID: -3619296799923221005}
-  - component: {fileID: -4458073247506183444}
+  - component: {fileID: 4059988196636982048}
   - component: {fileID: -4375461167774637661}
   m_Layer: 8
   m_Name: strongSeek
@@ -179,7 +179,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 15
---- !u!114 &-4458073247506183444
+  bulletData: {fileID: 4059988196636982048}
+--- !u!114 &4059988196636982048
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -188,10 +189,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 2078439556668251974}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 155f15bebba33f34bba62f694f623475, type: 3}
+  m_Script: {fileID: 11500000, guid: f767d4f4a403236458b8b0281b07fc4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerToDestroy: 2
+  isLightsaber: 0
+  isChaserFire: 0
+  bulletSpeed: 15
+  firerate: 0.1
+  destoryAfterDelay: 1
+  destroyAfterTime: 2
 --- !u!114 &-4375461167774637661
 MonoBehaviour:
   m_ObjectHideFlags: 0

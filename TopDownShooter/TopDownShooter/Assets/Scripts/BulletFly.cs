@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class BulletFly : MonoBehaviour
 {
-    public float bulletSpeed = 15.0f;
+    [SerializeField] BulletData bulletData;
     void Start()
     {
-        GetComponent<Rigidbody2D>().velocity = (transform.up * bulletSpeed);
+        GetComponent<Rigidbody2D>().velocity = (transform.up * bulletData.bulletSpeed);
     }
 }

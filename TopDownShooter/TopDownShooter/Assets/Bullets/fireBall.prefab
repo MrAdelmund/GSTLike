@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8192666231021101420}
   - component: {fileID: 9029014827583108606}
   - component: {fileID: -710999127934330130}
-  - component: {fileID: 6829229253086167595}
+  - component: {fileID: -4669713426896250317}
   - component: {fileID: 1143860065054644117}
   m_Layer: 8
   m_Name: fireBall
@@ -164,7 +164,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 20
---- !u!114 &6829229253086167595
+  bulletData: {fileID: -4669713426896250317}
+--- !u!114 &-4669713426896250317
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -173,10 +174,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 2078439556668251974}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 155f15bebba33f34bba62f694f623475, type: 3}
+  m_Script: {fileID: 11500000, guid: f767d4f4a403236458b8b0281b07fc4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerToDestroy: 4
+  isLightsaber: 0
+  isChaserFire: 0
+  bulletSpeed: 20
+  firerate: 0.1
+  destoryAfterDelay: 1
+  destroyAfterTime: 2
 --- !u!114 &1143860065054644117
 MonoBehaviour:
   m_ObjectHideFlags: 0

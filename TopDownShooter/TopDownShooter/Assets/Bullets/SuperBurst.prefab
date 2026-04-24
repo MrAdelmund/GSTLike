@@ -163,6 +163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 20
+  bulletData: {fileID: 4100767641992499199}
 --- !u!114 &5065235347222884819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -338,6 +339,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 20
+  bulletData: {fileID: 4100767641992499199}
 --- !u!114 &9017645647743449625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -513,6 +515,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 20
+  bulletData: {fileID: 4100767641992499199}
 --- !u!114 &6669354353735892546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -688,6 +691,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 20
+  bulletData: {fileID: 4100767641992499199}
 --- !u!114 &8318055469206527910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -863,6 +867,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 20
+  bulletData: {fileID: 4100767641992499199}
 --- !u!114 &2821281576135679576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -884,7 +889,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1844695761959174379}
-  - component: {fileID: -1776413558663977284}
+  - component: {fileID: 4100767641992499199}
   m_Layer: 0
   m_Name: SuperBurst
   m_TagString: Untagged
@@ -915,7 +920,7 @@ Transform:
   - {fileID: 1091435818512579601}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-1776413558663977284
+--- !u!114 &4100767641992499199
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -924,10 +929,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1844695761959174378}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 155f15bebba33f34bba62f694f623475, type: 3}
+  m_Script: {fileID: 11500000, guid: f767d4f4a403236458b8b0281b07fc4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerToDestroy: 0.2
+  isLightsaber: 0
+  isChaserFire: 0
+  bulletSpeed: 20
+  firerate: 0.1
+  destoryAfterDelay: 1
+  destroyAfterTime: 0.2
 --- !u!1 &2923744334528890747
 GameObject:
   m_ObjectHideFlags: 0
@@ -1091,6 +1101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 20
+  bulletData: {fileID: 4100767641992499199}
 --- !u!114 &3157958705716943237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1266,6 +1277,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 20
+  bulletData: {fileID: 4100767641992499199}
 --- !u!114 &4935609796090517952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1441,6 +1453,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 20
+  bulletData: {fileID: 4100767641992499199}
 --- !u!114 &9051236420034452950
 MonoBehaviour:
   m_ObjectHideFlags: 0

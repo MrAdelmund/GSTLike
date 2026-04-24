@@ -163,6 +163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 20
+  bulletData: {fileID: -6489488297181578676}
 --- !u!114 &3081702144101766486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -338,6 +339,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 20
+  bulletData: {fileID: -6489488297181578676}
 --- !u!114 &8986654713355686026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -513,6 +515,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 20
+  bulletData: {fileID: -6489488297181578676}
 --- !u!114 &8493072114461267438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -534,7 +537,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1844695761959174379}
-  - component: {fileID: 547274467945539129}
+  - component: {fileID: -6489488297181578676}
   m_Layer: 0
   m_Name: FireBurst
   m_TagString: Untagged
@@ -560,7 +563,7 @@ Transform:
   - {fileID: 4822095352403955272}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &547274467945539129
+--- !u!114 &-6489488297181578676
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -569,7 +572,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1844695761959174378}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 155f15bebba33f34bba62f694f623475, type: 3}
+  m_Script: {fileID: 11500000, guid: f767d4f4a403236458b8b0281b07fc4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerToDestroy: 0.3
+  isLightsaber: 0
+  isChaserFire: 0
+  bulletSpeed: 20
+  firerate: 0.1
+  destoryAfterDelay: 1
+  destroyAfterTime: 0.3
