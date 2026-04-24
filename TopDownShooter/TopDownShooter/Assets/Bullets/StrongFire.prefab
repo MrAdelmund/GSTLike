@@ -214,6 +214,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLightsaber: 0
   isChaserFire: 0
+  parentFollowBehavior: 1
   bulletSpeed: 12
   firerate: 0.1
   destoryAfterDelay: 1

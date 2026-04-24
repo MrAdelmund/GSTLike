@@ -6,6 +6,7 @@ public class BulletData : MonoBehaviour
 {
     public bool isLightsaber = false;
     public bool isChaserFire = false;
+    public bool parentFollowBehavior = false;
     public float bulletSpeed = 15;
     public float firerate = 0.1f;
     [SerializeField] bool destoryAfterDelay;

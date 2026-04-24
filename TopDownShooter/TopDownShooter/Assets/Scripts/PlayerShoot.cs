@@ -6,7 +6,6 @@ public class PlayerShoot : MonoBehaviour
     [SerializeField] Sprite[] gunSprites;
     [SerializeField] Image gun1;
     [SerializeField] Image gun2;
-    [SerializeField] float shootDelay = 1.0f;
     [SerializeField] Combination[] gunCombos;
     public bool[] selectedGun1;
     public bool[] selectedGun2;
@@ -22,13 +21,17 @@ public class PlayerShoot : MonoBehaviour
     int bullet2_ID = 0;
     //input variables
     bool firePressed = false;
+    bool retrieveBD = false;
     Vector2 aimInput;
+    float firerate = 0.1f;
+    bool doParentFollowBehavior = false;
+    bool runLightsaberCode = false;
     void Start()
     {
         facingDir = 1;
         lastSelectedGun = PickUpNewGun.selectedGun;
-        //these two in this weird order is a funky work around to avoid having an
-        //extra function that just gets used once in start to update both of the UI images.
+        //these two functions in this weird order is a funky work around to avoid having an
+        //extra function that just gets used once in start to display both of the UI images.
         UpdateGun2();
         UpdateGun();
     }
@@ -78,8 +81,10 @@ public class PlayerShoot : MonoBehaviour
         }
         //assigns prefab to use based off buttlet 1 & 2 Id intex
         prefab = gunCombos[bullet1_ID].bullets[bullet2_ID];
+        //sets bool so that next time shoot is called, it will update it's bullet related data
+        retrieveBD = true;
         //checks if the lightsaber weapon combo is still active, if not, it will exit the lightsaber state.
-        if (prefab.name != "LightSaber" && lightsaberMode)
+        if (runLightsaberCode && lightsaberMode)
         {
             ExitLightsaberState();
         }
@@ -115,7 +120,7 @@ public class PlayerShoot : MonoBehaviour
     {
         //shoot delay
         timer += Time.deltaTime;
-        if (timer > shootDelay || lightsaberMode)
+        if (timer > firerate || lightsaberMode)
         {
             timer = 0;
             UpdateShootingDirection();
@@ -141,20 +146,23 @@ public class PlayerShoot : MonoBehaviour
     {
         if (firePressed && !lightsaberMode)
         {
+            
             GameObject bullet = Instantiate(prefab, transform.position, Quaternion.identity);
-            if (prefab.name == "fire" || prefab.name == "StrongFire")
+            //gets data from the BulletData script whenever weapon is swaped
+            if (retrieveBD)
             {
-                bullet.GetComponent<BulletFlyWithParent>().parentRB = transform.parent.GetComponent<Rigidbody2D>();
+                RetrieveBulletData(bullet);
             }
-            bullet.transform.up = shootingDirection;
-            //checks if the spawned prefab is a LightSaber
-            if (prefab.name == "LightSaber")
+            if (doParentFollowBehavior)
+                bullet.GetComponent<BulletFlyWithParent>().parentRB = transform.parent.GetComponent<Rigidbody2D>();
+            if (runLightsaberCode)
             {
                 //"An elegant weapon for a more civilized time" - Obi-Wan Kenobi
                 lightsaberMode = true;
                 lightsaberObjectReference = bullet;
             }
-
+            //sets the direction for the bullet to go in
+            bullet.transform.up = shootingDirection;
         }
         //does specific Lightsaber behavior if in lightsaber mode
         else if (lightsaberMode == true)
@@ -172,6 +180,24 @@ public class PlayerShoot : MonoBehaviour
             lightsaberObjectReference.transform.up = shootingDirection;
             lightsaberObjectReference.transform.position = transform.position;
         }
+    }
+    void RetrieveBulletData(GameObject objectToRetrieveDataFrom)
+    {
+        BulletData BD = objectToRetrieveDataFrom.GetComponent<BulletData>();
+        //updates firerate
+        firerate = BD.firerate;
+        //checks if the spawned bullet has parentFollowBehavior enabled
+        if (BD.parentFollowBehavior)
+            doParentFollowBehavior = true;
+        else
+            doParentFollowBehavior = false;
+        //checks if the spawned bullet is a lightsaber
+        if (BD.isLightsaber)
+            runLightsaberCode = true;
+        else
+            runLightsaberCode  = false;
+        //turns off this chunk of code (only needs to run once whenever the weapon gets changed)
+        retrieveBD = false;
     }
     void ExitLightsaberState()
     {
