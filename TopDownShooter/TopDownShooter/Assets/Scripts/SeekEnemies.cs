@@ -6,15 +6,13 @@ public class SeekEnemies : MonoBehaviour
 {
     public GameObject target;
     public bool instant = false;
+    [SerializeField] float turnSpeed = 1f;
     float dist = 10000;
     float timer;
-    // Start is called before the first frame update
     void Start()
     {
         FindTarget();
     }
-
-    // Update is called once per frame
     void Update()
     {
         timer += Time.deltaTime;
@@ -31,7 +29,7 @@ public class SeekEnemies : MonoBehaviour
             }
             else
             {
-                transform.up = Vector3.Lerp(transform.up, target.transform.position - transform.position, 0.2f * timer);//0.053f);
+                transform.up = Vector3.Lerp(transform.up, target.transform.position - transform.position, 0.2f * timer * turnSpeed);//0.053f);
                 float speed = GetComponent<Rigidbody2D>().velocity.magnitude;
                 GetComponent<Rigidbody2D>().velocity = transform.up * speed;
             }

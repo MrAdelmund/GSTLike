@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4793125745865954860}
   - component: {fileID: 7506268586559933175}
   - component: {fileID: 8051216821951492469}
-  - component: {fileID: 3712981751746804661}
+  - component: {fileID: 529496524195532926}
   - component: {fileID: 512296750504072709}
   m_Layer: 8
   m_Name: bullet
@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletData: {fileID: -2553036736909789129}
---- !u!61 &3712981751746804661
+--- !u!61 &529496524195532926
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -196,7 +196,7 @@ GameObject:
   - component: {fileID: 1844695761959174379}
   - component: {fileID: -2553036736909789129}
   m_Layer: 0
-  m_Name: Laser
+  m_Name: LaserStrong
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -212,7 +212,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4822095352697637838}
@@ -233,7 +233,7 @@ MonoBehaviour:
   isLightsaber: 0
   isChaserFire: 0
   parentFollowBehavior: 0
-  bulletSpeed: 30
+  bulletSpeed: 40
   firerate: 0.04
   bulletSpread: 0
   bulletSpreadAmount: 0.1

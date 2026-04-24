@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 4793125745865954860}
   - component: {fileID: 7506268586559933175}
   - component: {fileID: 8051216821951492469}
-  - component: {fileID: 1597177469406357716}
+  - component: {fileID: 3712981751746804661}
   - component: {fileID: 512296750504072709}
+  - component: {fileID: 4019055225925085186}
   m_Layer: 8
   m_Name: bullet
   m_TagString: Untagged
@@ -128,8 +129,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletData: {fileID: -2553036736909789129}
---- !u!70 &1597177469406357716
-CapsuleCollider2D:
+--- !u!61 &3712981751746804661
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -160,9 +161,19 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.010257274, y: 0}
-  m_Size: {x: 0.19993192, y: 1}
-  m_Direction: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.2, y: 1}
+  m_EdgeRadius: 0
 --- !u!114 &512296750504072709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,6 +186,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 460a905c10765ce42a75d6d30073869e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4019055225925085186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378782608245994717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d84ada05badd84a49b9a1944cdf5e85b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  instant: 0
+  turnSpeed: 1
 --- !u!1 &1844695761959174378
 GameObject:
   m_ObjectHideFlags: 0
@@ -186,7 +212,7 @@ GameObject:
   - component: {fileID: 1844695761959174379}
   - component: {fileID: -2553036736909789129}
   m_Layer: 0
-  m_Name: LaserSegment
+  m_Name: SeekingLaser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -223,9 +249,9 @@ MonoBehaviour:
   isLightsaber: 0
   isChaserFire: 0
   parentFollowBehavior: 0
-  bulletSpeed: 40
-  firerate: 0.02
+  bulletSpeed: 30
+  firerate: 0.04
   bulletSpread: 0
   bulletSpreadAmount: 0.1
   destoryAfterDelay: 1
-  destroyAfterTime: 5
+  destroyAfterTime: 20
