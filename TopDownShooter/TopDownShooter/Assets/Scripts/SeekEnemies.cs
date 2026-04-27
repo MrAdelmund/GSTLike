@@ -13,9 +13,12 @@ public class SeekEnemies : MonoBehaviour
     {
         FindTarget();
     }
-    void Update()
+    private void Update()
     {
         timer += Time.deltaTime;
+    }
+    void FixedUpdate()
+    {
         if(target == null)
         {
             FindTarget();

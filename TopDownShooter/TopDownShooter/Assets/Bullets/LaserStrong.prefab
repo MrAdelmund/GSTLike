@@ -233,7 +233,7 @@ MonoBehaviour:
   isLightsaber: 0
   isChaserFire: 0
   parentFollowBehavior: 0
-  bulletSpeed: 40
+  bulletSpeed: 50
   firerate: 0.04
   bulletSpread: 0
   bulletSpreadAmount: 0.1

@@ -166,6 +166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   instant: 0
+  turnSpeed: 5
 --- !u!114 &-3619296799923221005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,7 +179,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 646079dd0bc3ad948a94ef117008cdf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 15
   bulletData: {fileID: 1368508847297666624}
 --- !u!114 &1368508847297666624
 MonoBehaviour:
@@ -194,8 +194,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLightsaber: 0
   isChaserFire: 0
+  parentFollowBehavior: 0
   bulletSpeed: 15
   firerate: 0.1
+  bulletSpread: 0
+  bulletSpreadAmount: 0.1
   destoryAfterDelay: 1
   destroyAfterTime: 2
 --- !u!114 &5792978922044392946
