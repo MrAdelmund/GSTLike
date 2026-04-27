@@ -38,9 +38,11 @@ public class PlayerMovement : MonoBehaviour
             } else if (moveInputX > 0)
             {
                 vel.x = moveSpeed;
+                PlayerShoot.facingDir = 1;
             } else if (moveInputX < 0)
             {
                 vel.x = -moveSpeed;
+                PlayerShoot.facingDir = -1;
             }
             rb.velocity = vel;
         }else if (firePressed && isGrounded)

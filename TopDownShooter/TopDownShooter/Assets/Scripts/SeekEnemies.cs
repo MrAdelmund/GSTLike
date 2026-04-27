@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class SeekEnemies : MonoBehaviour
 {
-    public GameObject target;
-    public bool instant = false;
+    [SerializeField] GameObject target;
+    [SerializeField] bool instant = false;
     [SerializeField] float turnSpeed = 1f;
     float dist = 10000;
     float timer;

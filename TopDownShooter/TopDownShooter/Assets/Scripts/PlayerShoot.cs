@@ -11,7 +11,7 @@ public class PlayerShoot : MonoBehaviour
     public bool[] selectedGun2;
     public static bool pickedUpNewGun = false;
     float timer = 0;
-    float facingDir = 0;
+    public static float facingDir = 0;
     int lastSelectedGun;
     Vector2 shootingDirection;
     bool lightsaberMode = false;
@@ -48,6 +48,7 @@ public class PlayerShoot : MonoBehaviour
             //updated gun & sprites
             UpdateGun();
         }
+        //attempts to shoot
         TryShooting();
     }
     void UpdateSprite(bool assignToGun1, int spriteToAssign)
@@ -133,10 +134,9 @@ public class PlayerShoot : MonoBehaviour
     {
         float x = Mathf.RoundToInt(aimInput.x);
         float y = Mathf.RoundToInt(aimInput.y);
-        //updates facing direction
+        //Checks if there is player input, if not, shoot at y 0 and last faced x direction.
         if (x != 0)
             facingDir = x;
-        //Checks if there is player input, if not, shoot at y 0 and last faced x direction.
         if (x != 0|| y != 0)
             shootingDirection = new Vector2(x, y);
         else
