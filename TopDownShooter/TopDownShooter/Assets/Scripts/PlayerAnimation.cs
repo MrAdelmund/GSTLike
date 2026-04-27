@@ -66,8 +66,8 @@ public class PlayerAnimation : MonoBehaviour
             _animator.SetBool("isShootingTopLeft", false);
         }
 
-        if (Input.GetKey(key: KeyCode.A) &&
-            Input.GetKey(key: KeyCode.Mouse0))
+        if (Input.GetKey(key:KeyCode.A) &&
+            Input.GetKey(key:KeyCode.Mouse0))
         {
             _animator.SetBool("isShootingLeft", true);
             _animator.SetBool("isRunningRight", false);
@@ -80,9 +80,9 @@ public class PlayerAnimation : MonoBehaviour
             _animator.SetBool("isShootingTopRight", false);
             _animator.SetBool("isShootingUp", false);
         } else {
-        _animator.SetBool("isShootingLeft", false);
+            _animator.SetBool("isShootingLeft", false);
                 }
-        if (Input.GetKey(key: KeyCode.A) &&
+        if (Input.GetKey(key:KeyCode.A) &&
             Input.GetKey(key:KeyCode.S) &&
             Input.GetKey(key:KeyCode.Mouse0))
         {
@@ -115,9 +115,9 @@ public class PlayerAnimation : MonoBehaviour
         } else {
             _animator.SetBool("isShootingDown", false);
         }
-        if (Input.GetKey(key: KeyCode.S) &&
-            Input.GetKey(key: KeyCode.D) &&
-            Input.GetKey(key: KeyCode.Mouse0))
+        if (Input.GetKey(key:KeyCode.S) &&
+            Input.GetKey(key:KeyCode.D) &&
+            Input.GetKey(key:KeyCode.Mouse0))
         {
             _animator.SetBool("isShootingBottomRight", true);
             _animator.SetBool("isRunningRight", false);
