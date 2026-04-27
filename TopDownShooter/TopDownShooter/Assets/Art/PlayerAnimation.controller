@@ -25,6 +25,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 2
     m_ConditionEvent: isShootingDown
+    m_EventTreshold: 0
   - m_ConditionMode: 2
     m_ConditionEvent: isShootingBottomRight
     m_EventTreshold: 0
