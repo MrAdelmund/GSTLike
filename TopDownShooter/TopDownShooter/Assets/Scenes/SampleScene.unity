@@ -1692,6 +1692,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1115794343}
+  - component: {fileID: 1115794346}
   - component: {fileID: 1115794342}
   - component: {fileID: 1115794341}
   - component: {fileID: 1115794344}
@@ -1778,6 +1779,7 @@ MonoBehaviour:
   - {x: 0, y: 0}
   - {x: 0, y: 0}
   - {x: 0, y: 0}
+  shootScriptReference: {fileID: 0}
 --- !u!4 &1115794343
 Transform:
   m_ObjectHideFlags: 0
@@ -1883,6 +1885,27 @@ MonoBehaviour:
   m_DefaultActionMap: Gameplay
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &1115794346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1115794340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f767d4f4a403236458b8b0281b07fc4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isLightsaber: 0
+  isChaserFire: 1
+  parentFollowBehavior: 0
+  bulletSpeed: 15
+  firerate: 0.1
+  bulletSpread: 0
+  bulletSpreadAmount: 0.1
+  destoryAfterDelay: 0
+  destroyAfterTime: 2
 --- !u!1001 &1176957925
 PrefabInstance:
   m_ObjectHideFlags: 0

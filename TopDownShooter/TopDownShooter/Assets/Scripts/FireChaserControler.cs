@@ -7,6 +7,7 @@ public class FireChaserControler : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 15f;
     [SerializeField] Vector2[] PositionChain;
+    [HideInInspector] public PlayerShoot shootScriptReference;
     Rigidbody2D rb;
     Vector2 aimInput;
     void Start()
