@@ -10,8 +10,8 @@ public class PlayerShoot : MonoBehaviour
     public bool[] selectedGun1;
     public bool[] selectedGun2;
     public static bool pickedUpNewGun = false;
-    float timer = 0;
     public static float facingDir = 0;
+    float timer = 0;
     int lastSelectedGun;
     Vector2 shootingDirection;
     bool lightsaberMode = false;
