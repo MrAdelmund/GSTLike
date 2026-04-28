@@ -14,9 +14,8 @@ public class PlayerShoot : MonoBehaviour
     float timer = 0;
     int lastSelectedGun;
     Vector2 shootingDirection;
-    bool lightsaberMode = false;
     GameObject prefab; //prefab that gets spawned in when shooting
-    GameObject lightsaberObjectReference; //an object reference that is only needed when using the lightsaber
+    GameObject currentBulletObjectReference; //an object reference that is only needed when using the lightsaber
     int bullet1_ID = 0;
     int bullet2_ID = 0;
     //input variables
@@ -26,7 +25,11 @@ public class PlayerShoot : MonoBehaviour
     float firerate = 0.1f;
     bool doParentFollowBehavior = false;
     bool runLightsaberCode = false;
+    bool activeLightsaberMode = false;
+    bool runFireChaserCode = false;
+    bool activeFireChaserMode = false;
     bool applyBulletSpread = false;
+    FireChaserControler fireChaserControler;
     float bulletSpread = 0.1f;
     void Start()
     {
@@ -87,10 +90,11 @@ public class PlayerShoot : MonoBehaviour
         //sets bool so that next time shoot is called, it will update it's bullet related data
         retrieveBD = true;
         //checks if the lightsaber weapon combo is still active, if not, it will exit the lightsaber state.
-        if (runLightsaberCode && lightsaberMode)
-        {
+        if (runLightsaberCode && activeLightsaberMode)
             ExitLightsaberState();
-        }
+        //checks if the fireChaser weapon combo is still active, if not, it will exit the fireChaser state.
+        if (runFireChaserCode && activeFireChaserMode)
+            ExitFireChaserMode();
     }
     void UpdateGun1()
     {
@@ -123,7 +127,7 @@ public class PlayerShoot : MonoBehaviour
     {
         //shoot delay
         timer += Time.deltaTime;
-        if (timer > firerate && firePressed || lightsaberMode)
+        if (timer > firerate && firePressed || activeLightsaberMode)
         {
             timer = 0;
             UpdateShootingDirection();
@@ -147,7 +151,7 @@ public class PlayerShoot : MonoBehaviour
     }
     void Shoot()
     {
-        if (!lightsaberMode)
+        if (!activeLightsaberMode && ! activeFireChaserMode)
         {
             
             GameObject bullet = Instantiate(prefab, transform.position, Quaternion.identity);
@@ -163,8 +167,14 @@ public class PlayerShoot : MonoBehaviour
             if (runLightsaberCode)
             {
                 //"An elegant weapon for a more civilized time" - Obi-Wan Kenobi
-                lightsaberMode = true;
-                lightsaberObjectReference = bullet;
+                activeLightsaberMode = true;
+                currentBulletObjectReference = bullet;
+            }
+            else if (runFireChaserCode)
+            {
+                activeFireChaserMode = true;
+                currentBulletObjectReference = bullet;
+                fireChaserControler = bullet.GetComponent<FireChaserControler>();
             }
             if (applyBulletSpread)
             {
@@ -176,18 +186,25 @@ public class PlayerShoot : MonoBehaviour
         //does specific Lightsaber behavior if in lightsaber mode
         else
         {
-            //  READ ME
-            //the Lightsaber weapon has a different behavior compaired to other weapons
-            //the Lightsaber is a persisting projectile and just has it's rotation & position updated
-
-            //destorys Lightsaber if fire button is not pressed
-            if (!firePressed)
+            if (activeLightsaberMode)
             {
-                ExitLightsaberState();
+                //  READ ME
+                //the Lightsaber weapon has a different behavior compaired to other weapons
+                //the Lightsaber is a persisting projectile and just has it's rotation & position updated
+
+                //destorys Lightsaber if fire button is not pressed
+                if (!firePressed)
+                {
+                    ExitLightsaberState();
+                }
+                //updates the curent spawned in lightsaber's rotation and position
+                currentBulletObjectReference.transform.up = shootingDirection;
+                currentBulletObjectReference.transform.position = transform.position;
+            }else
+            {
+
             }
-            //updates the curent spawned in lightsaber's rotation and position
-            lightsaberObjectReference.transform.up = shootingDirection;
-            lightsaberObjectReference.transform.position = transform.position;
+            
         }
     }
     void RetrieveBulletData(GameObject objectToRetrieveDataFrom)
@@ -199,13 +216,18 @@ public class PlayerShoot : MonoBehaviour
         bulletSpread = BD.bulletSpreadAmount;
         doParentFollowBehavior = BD.parentFollowBehavior;
         runLightsaberCode = BD.isLightsaber;
+        runFireChaserCode = BD.isChaserFire;
         //turns off this chunk of code (only needs to run once whenever the weapon gets changed)
         retrieveBD = false;
     }
     void ExitLightsaberState()
     {
-        lightsaberMode = false;
-        Destroy(lightsaberObjectReference);
+        activeLightsaberMode = false;
+        Destroy(currentBulletObjectReference);
+    }
+    void ExitFireChaserMode()
+    {
+        activeFireChaserMode = false;
     }
     //updaters for inputs
     public void PlayerInputAim(InputAction.CallbackContext context)

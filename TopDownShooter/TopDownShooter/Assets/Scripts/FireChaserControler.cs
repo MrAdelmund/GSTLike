@@ -5,21 +5,18 @@ using UnityEngine.InputSystem;
 
 public class FireChaserControler : MonoBehaviour
 {
-    [SerializeField] float moveSpeed = 15f;
     [SerializeField] Vector2[] PositionChain;
     [HideInInspector] public PlayerShoot shootScriptReference;
     Rigidbody2D rb;
+    float bulletSpeed;
     Vector2 aimInput;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        bulletSpeed = GetComponent<BulletData>().bulletSpeed;
     }
     void Update()
     {
-        rb.velocity = (aimInput * moveSpeed);
-    }
-    public void PlayerInputAim(InputAction.CallbackContext context)
-    {
-        aimInput = context.ReadValue<Vector2>();
+        rb.velocity = (aimInput * bulletSpeed);
     }
 }
