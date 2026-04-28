@@ -3019,111 +3019,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!1 &1986438258 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1184181123475759374, guid: 0f706ebc150de324c8af86fe46caa77f,
-    type: 3}
-  m_PrefabInstance: {fileID: 8045952147300632685}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1986438263
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1986438258}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: c82de7694cab4bb48ba703d6567f61cc,
-    type: 3}
-  m_NotificationBehavior: 2
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents:
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1986438264}
-        m_TargetAssemblyTypeName: PlayerAnimation2, Assembly-CSharp
-        m_MethodName: PlayerInputAim
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: c9ff7e81-7979-4e3d-8c24-20d1bb20a033
-    m_ActionName: Gameplay/Move/Aim[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1986438264}
-        m_TargetAssemblyTypeName: PlayerAnimation2, Assembly-CSharp
-        m_MethodName: PlayerInputJump
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 3b73fb21-f015-4188-a05e-63620fae32b8
-    m_ActionName: Gameplay/Jump[/Keyboard/space]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1986438264}
-        m_TargetAssemblyTypeName: PlayerAnimation2, Assembly-CSharp
-        m_MethodName: PlayerInputFire
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 65a8792e-3e02-4d57-9bda-d595b3a19321
-    m_ActionName: Gameplay/Fire[/Mouse/leftButton]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 9ca9fd30-628f-4479-a78f-dfae389dfdb1
-    m_ActionName: Gameplay/PickupWeapon[/Keyboard/r]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: ee9be4b6-3c37-4eff-a758-7f3adf98e2e2
-    m_ActionName: Gameplay/SwitchSelectedWeapon[/Keyboard/tab]
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Gameplay
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
---- !u!114 &1986438264
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1986438258}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3934a26257bf9b34f85d04dc50dfa957, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2042304527
 GameObject:
   m_ObjectHideFlags: 0
@@ -3308,16 +3203,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 568815628346667439, guid: 0f706ebc150de324c8af86fe46caa77f,
-        type: 3}
-      propertyPath: m_FlipX
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 568815628346667439, guid: 0f706ebc150de324c8af86fe46caa77f,
-        type: 3}
-      propertyPath: m_FlipY
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1130090983871950551, guid: 0f706ebc150de324c8af86fe46caa77f,
         type: 3}
       propertyPath: gun1
@@ -3338,11 +3223,6 @@ PrefabInstance:
       propertyPath: gun2
       value: 
       objectReference: {fileID: 1406256149}
-    - target: {fileID: 7394226859374009844, guid: 0f706ebc150de324c8af86fe46caa77f,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 6ff9bf6eae841304f9c412e2802c88f1, type: 2}
     - target: {fileID: 7832485232191035401, guid: 0f706ebc150de324c8af86fe46caa77f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3398,19 +3278,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 4480448123777476526, guid: 0f706ebc150de324c8af86fe46caa77f, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1184181123475759374, guid: 0f706ebc150de324c8af86fe46caa77f,
-        type: 3}
-      insertIndex: 2
-      addedObject: {fileID: 1986438264}
-    - targetCorrespondingSourceObject: {fileID: 1184181123475759374, guid: 0f706ebc150de324c8af86fe46caa77f,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1986438263}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f706ebc150de324c8af86fe46caa77f, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

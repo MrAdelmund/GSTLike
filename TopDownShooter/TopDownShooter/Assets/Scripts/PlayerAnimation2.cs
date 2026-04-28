@@ -7,6 +7,7 @@ public class PlayerAnimation2 : MonoBehaviour
 {
     Animator anim;
     SpriteRenderer spr;
+    PlayerMovement playerMovement;
     //jump not currently used, but here for future development.
     bool jumpPressed = false;
     Vector2 aimInput;
@@ -16,6 +17,11 @@ public class PlayerAnimation2 : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         spr = GetComponent<SpriteRenderer>();
+        playerMovement = GetComponentInParent<PlayerMovement>();
+    }
+    private void Update()
+    {
+        anim.SetBool("IsGrounded", playerMovement.isGrounded);
     }
     void ProcessPlayerAimInput()
     {

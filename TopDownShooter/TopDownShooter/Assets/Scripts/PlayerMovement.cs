@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float jumpForce = 2.0f;
     [SerializeField] float extraFallMutiplyer = 2;
     [SerializeField] ContactFilter2D groundCheckContactFilter;
-    bool isGrounded => rb.IsTouching(groundCheckContactFilter);
+    [HideInInspector] public bool isGrounded => rb.IsTouching(groundCheckContactFilter);
     Rigidbody2D rb;
     float defaultGravity;
     bool jumpPressed = false;
