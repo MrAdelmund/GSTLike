@@ -9,28 +9,30 @@ public class PlayerShoot : MonoBehaviour
     [SerializeField] Combination[] gunCombos;
     public bool[] selectedGun1;
     public bool[] selectedGun2;
-    public static bool pickedUpNewGun = false;
-    public static float facingDir = 0;
-    float timer = 0;
+    public static bool pickedUpNewGun = false; //this variable is set by the PickUpNewGun script
+    public static float facingDir = 0; // this variable is set by the PlayerMovement script
     int lastSelectedGun;
-    Vector2 shootingDirection;
     GameObject prefab; //prefab that gets spawned in when shooting
     GameObject currentBulletObjectReference; //an object reference that is only needed when using the lightsaber
     int bullet1_ID = 0;
     int bullet2_ID = 0;
-    //input variables
-    bool firePressed = false;
+    bool firePressed = false; //player input
     bool retrieveBD = false;
-    Vector2 aimInput;
+    Vector2 aimInput; //player input
+    Vector2 shootingDirection;
+    float timer = 0;
     float firerate = 0.1f;
+    float bulletSpread = 0.1f;
+    //Variables taken from currently used bullet prefab (BulletData script)
     bool doParentFollowBehavior = false;
     bool runLightsaberCode = false;
     bool activeLightsaberMode = false;
     bool runFireChaserCode = false;
     bool activeFireChaserMode = false;
     bool applyBulletSpread = false;
-    FireChaserControler fireChaserControler;
-    float bulletSpread = 0.1f;
+    FireChaserControler fireChaserControler; //reference to active bullet's FireChaserControler script (when applicable)
+    float x;
+    float y;
     void Start()
     {
         facingDir = 1;
@@ -127,7 +129,7 @@ public class PlayerShoot : MonoBehaviour
     {
         //shoot delay
         timer += Time.deltaTime;
-        if (timer > firerate && firePressed || activeLightsaberMode)
+        if (timer > firerate && firePressed || activeLightsaberMode || activeFireChaserMode)
         {
             timer = 0;
             UpdateShootingDirection();
@@ -136,8 +138,8 @@ public class PlayerShoot : MonoBehaviour
     }
     void UpdateShootingDirection()
     {
-        float x = Mathf.RoundToInt(aimInput.x);
-        float y = Mathf.RoundToInt(aimInput.y);
+        x = Mathf.RoundToInt(aimInput.x);
+        y = Mathf.RoundToInt(aimInput.y);
         //Checks if there is player input, if not, shoot at y 0 and last faced x direction.
         if (x != 0)
             facingDir = x;
@@ -170,11 +172,13 @@ public class PlayerShoot : MonoBehaviour
                 activeLightsaberMode = true;
                 currentBulletObjectReference = bullet;
             }
+            //runs if using the fireChaser weapon
             else if (runFireChaserCode)
             {
                 activeFireChaserMode = true;
                 currentBulletObjectReference = bullet;
                 fireChaserControler = bullet.GetComponent<FireChaserControler>();
+                fireChaserControler.playerFacingDir = facingDir;
             }
             if (applyBulletSpread)
             {
@@ -186,12 +190,11 @@ public class PlayerShoot : MonoBehaviour
         //does specific Lightsaber behavior if in lightsaber mode
         else
         {
+            //          READ ME
+            //the Lightsaber & FireChaser weapons have different behaviors compaired to other weapons
+            //they are persisting projectiles and just have different parts of them updated (depending on the weapon)
             if (activeLightsaberMode)
             {
-                //  READ ME
-                //the Lightsaber weapon has a different behavior compaired to other weapons
-                //the Lightsaber is a persisting projectile and just has it's rotation & position updated
-
                 //destorys Lightsaber if fire button is not pressed
                 if (!firePressed)
                 {
@@ -202,7 +205,13 @@ public class PlayerShoot : MonoBehaviour
                 currentBulletObjectReference.transform.position = transform.position;
             }else
             {
-
+                //cuts communication to current fireChaser object if fire button is not pressed
+                if (!firePressed)
+                {
+                    ExitFireChaserMode();
+                }
+                //hands the player's input to the FireChaserControler scipt for processing
+                fireChaserControler.aimInput = new Vector2(x, y);
             }
             
         }
@@ -228,6 +237,7 @@ public class PlayerShoot : MonoBehaviour
     void ExitFireChaserMode()
     {
         activeFireChaserMode = false;
+        Destroy(currentBulletObjectReference, 5);
     }
     //updaters for inputs
     public void PlayerInputAim(InputAction.CallbackContext context)

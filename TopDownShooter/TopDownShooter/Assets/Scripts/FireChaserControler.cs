@@ -1,22 +1,43 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class FireChaserControler : MonoBehaviour
 {
-    [SerializeField] Vector2[] PositionChain;
-    [HideInInspector] public PlayerShoot shootScriptReference;
-    Rigidbody2D rb;
+    [SerializeField] GameObject[] objectChain;
+    [SerializeField] Rigidbody2D[] rigidbodyChain;
+    [SerializeField] float lagtime = 0.25f;
+    float timer = 0;
     float bulletSpeed;
-    Vector2 aimInput;
+    [HideInInspector] public Vector2 aimInput;
+    [HideInInspector] public bool activePlayerControl = true;
+    [HideInInspector] public float playerFacingDir;
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
         bulletSpeed = GetComponent<BulletData>().bulletSpeed;
+        if (aimInput == Vector2.zero)
+            aimInput = new Vector2 (playerFacingDir, 0);
+        Debug.Log(aimInput);
+        Debug.Log(bulletSpeed);
+        for (int i = rigidbodyChain.Length - 1; i >= 0; i--)
+        {
+            rigidbodyChain[i].velocity = (aimInput * bulletSpeed);
+        }
     }
     void Update()
     {
-        rb.velocity = (aimInput * bulletSpeed);
+        if (aimInput != Vector2.zero)
+            rigidbodyChain[0].velocity = (aimInput * bulletSpeed);
+        timer += Time.deltaTime;
+        if (timer > lagtime)
+        {
+            timer = 0;
+            UpdateObjectChainVelocity();
+        }
+    }
+    void UpdateObjectChainVelocity()
+    {
+        for (int i = rigidbodyChain.Length - 1; i > 0; i--)
+        {
+            rigidbodyChain[i].velocity = rigidbodyChain[i - 1].velocity;
+        }
     }
 }
