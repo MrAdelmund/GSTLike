@@ -237,6 +237,7 @@ public class PlayerShoot : MonoBehaviour
     void ExitFireChaserMode()
     {
         activeFireChaserMode = false;
+        fireChaserControler.activePlayerControl = false;
         Destroy(currentBulletObjectReference, 5);
     }
     //updaters for inputs

@@ -3000,18 +3000,6 @@ PrefabInstance:
       propertyPath: gun2
       value: 
       objectReference: {fileID: 1406256149}
-    - target: {fileID: 3045267472127859451, guid: 0f706ebc150de324c8af86fe46caa77f,
-        type: 3}
-      propertyPath: gunCombos.Array.data[2].bullets.Array.data[4]
-      value: 
-      objectReference: {fileID: 1720417985367299327, guid: d1233489628c18843a6c11c82040bba2,
-        type: 3}
-    - target: {fileID: 3045267472127859451, guid: 0f706ebc150de324c8af86fe46caa77f,
-        type: 3}
-      propertyPath: gunCombos.Array.data[3].bullets.Array.data[3]
-      value: 
-      objectReference: {fileID: 1720417985367299327, guid: d1233489628c18843a6c11c82040bba2,
-        type: 3}
     - target: {fileID: 7832485232191035401, guid: 0f706ebc150de324c8af86fe46caa77f,
         type: 3}
       propertyPath: m_LocalPosition.x

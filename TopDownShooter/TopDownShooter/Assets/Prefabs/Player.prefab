@@ -277,12 +277,12 @@ MonoBehaviour:
     - {fileID: 2078439556668251974, guid: 37efa3cff2ebc4e4c878f11e4dde9cab, type: 3}
     - {fileID: 1844695761959174378, guid: 447da2a1aea962d46baefed2696c25c2, type: 3}
     - {fileID: 2078439556668251974, guid: da3badaf4503ff04f8012f71f7d084b1, type: 3}
-    - {fileID: 2078439556668251974, guid: 55c67d632bbd6774dbced9b2aa929a1e, type: 3}
+    - {fileID: 1720417985367299327, guid: d1233489628c18843a6c11c82040bba2, type: 3}
   - bullets:
     - {fileID: 2078439556668251974, guid: e6c6b831a0a71974d8cdea7bb6234f02, type: 3}
     - {fileID: 2078439556668251974, guid: b42b9a82c03402449a34170297b67377, type: 3}
     - {fileID: 1844695761959174378, guid: bdab217ffd7aa8d4b8cfe111c8a5f55c, type: 3}
-    - {fileID: 2078439556668251974, guid: 55c67d632bbd6774dbced9b2aa929a1e, type: 3}
+    - {fileID: 1720417985367299327, guid: d1233489628c18843a6c11c82040bba2, type: 3}
     - {fileID: 2078439556668251974, guid: b42b9a82c03402449a34170297b67377, type: 3}
   selectedGun1: 00010000
   selectedGun2: 00000100
