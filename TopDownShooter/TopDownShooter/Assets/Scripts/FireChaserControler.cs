@@ -55,7 +55,7 @@ public class FireChaserControler : MonoBehaviour
             positionList.RemoveAt(positionList.Count - 1);
             ZRotationList.RemoveAt(ZRotationList.Count - 1);
         }
-        //checks the projectile is spawned in
+        //checks the entire projectile is spawned in
         if (positionList.Count > chainDistance * (objectChain.Length))
         {
             doneSpawning = true;
@@ -71,7 +71,7 @@ public class FireChaserControler : MonoBehaviour
             objectChain[i].transform.eulerAngles = new Vector3(0, 0, ZRotationList[i * chainDistance]);
         }
     }
-    //Runs once the whole chain is spawned in. All this does differently is it has less
+    //Runs when the whole chain is spawned in. All this does differently is it has less
     //checks because the whole projectile chain is already spawned in.
     void UpdateObjectChainPositon()
     {

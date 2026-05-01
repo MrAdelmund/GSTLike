@@ -10,7 +10,6 @@ public class PlayerShoot : MonoBehaviour
     public bool[] selectedGun1;
     public bool[] selectedGun2;
     public static bool pickedUpNewGun = false; //this variable is set by the PickUpNewGun script
-    public static float facingDir = 0; // this variable is set by the PlayerMovement script
     int lastSelectedGun;
     GameObject prefab; //prefab that gets spawned in when shooting
     GameObject currentBulletObjectReference; //an object reference that is only needed when using the lightsaber
@@ -20,6 +19,7 @@ public class PlayerShoot : MonoBehaviour
     bool retrieveBD = false;
     Vector2 aimInput; //player input
     Vector2 shootingDirection;
+    float facingDir = 0;
     float timer = 0;
     float firerate = 0.1f;
     float bulletSpread = 0.1f;
@@ -128,11 +128,11 @@ public class PlayerShoot : MonoBehaviour
     void TryShooting()
     {
         //shoot delay
+        UpdateShootingDirection();
         timer += Time.deltaTime;
         if (timer > firerate && firePressed || activeLightsaberMode || activeFireChaserMode)
         {
             timer = 0;
-            UpdateShootingDirection();
             Shoot();
         }
     }
@@ -187,12 +187,12 @@ public class PlayerShoot : MonoBehaviour
             //sets the direction for the bullet to go in
             bullet.transform.up = shootingDirection;
         }
-        //does specific Lightsaber behavior if in lightsaber mode
+        //does specific Lightsaber/FireChaser behavior if in lightsaber/fireChaser mode
         else
         {
             //          READ ME
-            //the Lightsaber & FireChaser weapons have different behaviors compaired to other weapons
-            //they are persisting projectiles and just have different parts of them updated (depending on the weapon)
+            //The Lightsaber & FireChaser weapons have different behaviors compaired to other weapons,
+            //they are persisting projectiles and just have different parts of them updated (depending on the weapon).
             if (activeLightsaberMode)
             {
                 //destorys Lightsaber if fire button is not pressed
