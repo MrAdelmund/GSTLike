@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class GunPickup : MonoBehaviour
 {
-    [Tooltip ("0 is normal gun, 1 is burst, 2 is fireball, 3 is seek")]
+    [Tooltip ("0 is normal, 1 is lightning, 2 is fire, 3 is chaser")]
     public int gunIndex;
     [SerializeField] Sprite[] gunTypeSprites;
     void Start()

@@ -5,13 +5,18 @@ using UnityEngine;
 public class JumpBoxTriggerer : MonoBehaviour
 {
     [SerializeField] bool isLeftBox = true;
-    EnemyManager enemyManager;
+    [SerializeField] int layerToCollideWith;
+    MeleeEnemyManager enemyManager;
     void Start()
     {
-        enemyManager = GetComponentInParent<EnemyManager>();
+        enemyManager = GetComponentInParent<MeleeEnemyManager>();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        enemyManager.JumpBoxTriggered(isLeftBox);
+        if (collision.gameObject.layer == layerToCollideWith)
+        {
+            enemyManager.JumpBoxTriggered(isLeftBox);
+        }
+        
     }
 }

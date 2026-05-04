@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1630800640683227748}
   - component: {fileID: 7394226859374009844}
   - component: {fileID: 6358999017993847234}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: PlayerSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -218,7 +218,7 @@ GameObject:
   - component: {fileID: 1455573284067893048}
   - component: {fileID: 3045267472127859451}
   - component: {fileID: 8786514373326180172}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -375,9 +375,9 @@ GameObject:
   - component: {fileID: 1130090983871950551}
   - component: {fileID: 1382644772234676543}
   - component: {fileID: 5182127783383298596}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
