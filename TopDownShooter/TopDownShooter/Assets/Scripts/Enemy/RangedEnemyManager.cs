@@ -8,9 +8,11 @@ public class RangedEnemyManager : MonoBehaviour
     [SerializeField] float moveSpeed = 4;
     [SerializeField] float jumpForce = 15;
     [SerializeField] float attackCooldown = 1.5f;
-    [SerializeField] float runDistance = 6;
+    [SerializeField] float fleeDistance = 6;
+    [SerializeField] float followDistance = 10;
     [SerializeField] ContactFilter2D groundCheckContactFilter;
     [Header("References")]
+    [SerializeField] GameObject bulletPrefab;
     [SerializeField] BoxCollider2D jumpCheckBoxL;
     [SerializeField] BoxCollider2D jumpCheckBoxR;
     Animator animator;
@@ -19,7 +21,6 @@ public class RangedEnemyManager : MonoBehaviour
     GameObject player;
     bool isGrounded => rb.IsTouching(groundCheckContactFilter);
     bool properlyStandingStill;
-    bool runningFromPlayer;
     int inproperlyStandingStillFor;
     float stopMovingTimer = 0;
     float cantAttackFor = 0;
@@ -42,7 +43,7 @@ public class RangedEnemyManager : MonoBehaviour
             RunMovement();
         }
         //starts an attack when conditions are met
-        if (Vector2.Distance(player.transform.position, transform.position) > runDistance && cantAttackFor <= 0)
+        if (properlyStandingStill && cantAttackFor <= 0)
         {
             StopMovingFor(1);
             StartAttack();
@@ -50,7 +51,7 @@ public class RangedEnemyManager : MonoBehaviour
         }
         //updates values for animaior
         animator.SetBool("Grounded", isGrounded);
-        animator.SetBool("Moving", (rb.velocity.x != 0) ? true : false);
+        animator.SetBool("Moving", (rb.velocity.x >= 0.05 || rb.velocity.x <= -0.05) ? true : false);
     }
     void RunMovement()
     {
@@ -63,8 +64,7 @@ public class RangedEnemyManager : MonoBehaviour
                 inproperlyStandingStillFor = 0;
                 Jump();
             }
-        }
-        else
+        }else
         {
             inproperlyStandingStillFor = 0;
         }
@@ -84,12 +84,20 @@ public class RangedEnemyManager : MonoBehaviour
         }
         else
             properlyStandingStill = true;
-        if (1 > 0)
+        float playerDist = Vector2.Distance(player.transform.position, transform.position);
+        if (playerDist >= followDistance)
         {
-            movedir *= -1;
+            rb.velocity = new Vector2(movedir * moveSpeed, rb.velocity.y);
+            properlyStandingStill = false;
+        }
+        else if (playerDist <= fleeDistance)
+        {
+            rb.velocity = new Vector2((-1 * movedir) * moveSpeed, rb.velocity.y);
+            properlyStandingStill = false;
             spr.flipX = !spr.flipX;
         }
-        rb.velocity = new Vector2(movedir * moveSpeed, rb.velocity.y);
+        else
+            properlyStandingStill = true;
     }
     //when called, will stop enemy from moving for (time)
     void StopMovingFor(float time)

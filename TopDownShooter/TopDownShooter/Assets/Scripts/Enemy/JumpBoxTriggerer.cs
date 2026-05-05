@@ -6,17 +6,25 @@ public class JumpBoxTriggerer : MonoBehaviour
 {
     [SerializeField] bool isLeftBox = true;
     [SerializeField] int layerToCollideWith;
-    MeleeEnemyManager enemyManager;
-    void Start()
+    [SerializeField] bool isPartOfMeleeEnemy = true;
+    [SerializeField] bool isPartOfRangedEnemy = false;
+    MeleeEnemyManager meleeEnemyManager;
+    RangedEnemyManager rangedEnemyManager;
+    private void Start()
     {
-        enemyManager = GetComponentInParent<MeleeEnemyManager>();
+        if (isPartOfMeleeEnemy)
+            meleeEnemyManager = GetComponentInParent<MeleeEnemyManager>();
+        if (isPartOfRangedEnemy)
+            rangedEnemyManager = GetComponentInParent<RangedEnemyManager>();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.layer == layerToCollideWith)
         {
-            enemyManager.JumpBoxTriggered(isLeftBox);
+            if (isPartOfMeleeEnemy)
+                meleeEnemyManager.JumpBoxTriggered(isLeftBox);
+            else
+                rangedEnemyManager.JumpBoxTriggered(isLeftBox);
         }
-        
     }
 }
