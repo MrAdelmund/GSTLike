@@ -1,26 +1,26 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class MeleeEnemyManager : MonoBehaviour
+public class RangedEnemyManager : MonoBehaviour
 {
-    [Header("Melee Enemy Config")]
+    [Header("Ranged Enemy Config")]
     [SerializeField] float moveSpeed = 4;
     [SerializeField] float jumpForce = 15;
     [SerializeField] float attackCooldown = 1.5f;
-    [SerializeField] float retreatTime = 2.5f;
-    [SerializeField] float attackDistance = 1.5f;
+    [SerializeField] float runDistance = 6;
     [SerializeField] ContactFilter2D groundCheckContactFilter;
     [Header("References")]
     [SerializeField] BoxCollider2D jumpCheckBoxL;
     [SerializeField] BoxCollider2D jumpCheckBoxR;
-    [SerializeField] MeleeAttackBoxCheck attackHitBoxObject;
     Animator animator;
     SpriteRenderer spr;
     Rigidbody2D rb;
     GameObject player;
     bool isGrounded => rb.IsTouching(groundCheckContactFilter);
     bool properlyStandingStill;
+    bool runningFromPlayer;
     int inproperlyStandingStillFor;
-    float retreatFor = 0;
     float stopMovingTimer = 0;
     float cantAttackFor = 0;
     void Start()
@@ -34,10 +34,6 @@ public class MeleeEnemyManager : MonoBehaviour
     {
         stopMovingTimer -= Time.deltaTime;
         cantAttackFor -= Time.deltaTime;
-        if ( cantAttackFor <= 0)
-        {
-            retreatFor -= Time.deltaTime;
-        }
     }
     void FixedUpdate()
     {
@@ -46,7 +42,7 @@ public class MeleeEnemyManager : MonoBehaviour
             RunMovement();
         }
         //starts an attack when conditions are met
-        if (Vector2.Distance(player.transform.position, transform.position) < attackDistance && cantAttackFor <= 0)
+        if (Vector2.Distance(player.transform.position, transform.position) > runDistance && cantAttackFor <= 0)
         {
             StopMovingFor(1);
             StartAttack();
@@ -67,7 +63,8 @@ public class MeleeEnemyManager : MonoBehaviour
                 inproperlyStandingStillFor = 0;
                 Jump();
             }
-        }else
+        }
+        else
         {
             inproperlyStandingStillFor = 0;
         }
@@ -87,7 +84,7 @@ public class MeleeEnemyManager : MonoBehaviour
         }
         else
             properlyStandingStill = true;
-        if (retreatFor > 0)
+        if (1 > 0)
         {
             movedir *= -1;
             spr.flipX = !spr.flipX;
@@ -120,13 +117,5 @@ public class MeleeEnemyManager : MonoBehaviour
     public void Attack()
     {
         animator.SetBool("Attacking", false);
-        attackHitBoxObject.gameObject.SetActive(true);
-        attackHitBoxObject.currentAttemptedDammageTime = 0;
-    }
-    //makes enemy retreat only when an attack lands
-    //gets called by MeleeAttackBoxCheck
-    public void AttackHit()
-    {
-        retreatFor = retreatTime;
     }
 }

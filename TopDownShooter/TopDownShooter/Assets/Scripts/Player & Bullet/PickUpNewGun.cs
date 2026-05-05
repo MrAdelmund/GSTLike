@@ -49,6 +49,7 @@ public class PickUpNewGun : MonoBehaviour
         int oldGunID = -1;
         if (pickupGunPressed && collision.gameObject.GetComponent<GunPickup>() != null)
         {
+            //sets pickupGunPressed to false so it does not spam switch weapons when button is held
             pickupGunPressed = false;
             int gunID = collision.gameObject.GetComponent<GunPickup>().gunIndex;
             //if the selected gun is index 0 or 2 (slot 1 or both) switch out the first gun slot
