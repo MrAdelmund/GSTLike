@@ -8,4 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 87cd202c60b49ed4d90986a1df4a04ab
+  - enabled: 1
+    path: Assets/Scenes/DevinTest.unity
+    guid: 37b11d68d5eaca047b2164de7c1117e1
   m_configObjects: {}
