@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7506268586559933175}
   - component: {fileID: 8051216821951492469}
   - component: {fileID: 3712981751746804661}
+  - component: {fileID: 4639235347799354899}
   m_Layer: 8
   m_Name: bullet
   m_TagString: Untagged
@@ -172,6 +173,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.2, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &4639235347799354899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378782608245994717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1353b88a32d897a438d490d3e5d78f74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1844695761959174378
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,6 +235,7 @@ MonoBehaviour:
   parentFollowBehavior: 0
   bulletSpeed: 30
   firerate: 0.04
+  bulletDamage: 10
   bulletSpread: 0
   bulletSpreadAmount: 0.1
   destoryAfterDelay: 1

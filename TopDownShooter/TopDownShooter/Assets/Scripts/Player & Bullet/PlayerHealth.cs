@@ -24,7 +24,7 @@ public class PlayerHealth : MonoBehaviour
         iFrames -= Time.deltaTime;
     }
     //gets called by enemy hitbox/enemy bullet object
-    public void TakeDammage(int amountOfDammage)
+    public void TakeDamage(int amountOfDammage)
     {
         //dammages player if they do not have Iframes
         if (iFrames <= 0)

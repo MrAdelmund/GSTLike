@@ -11,7 +11,9 @@ GameObject:
   - component: {fileID: 8248520328732210151}
   - component: {fileID: 6663995260935945676}
   - component: {fileID: 6898034359333640552}
-  m_Layer: 0
+  - component: {fileID: 1803616648743666130}
+  - component: {fileID: 5418447181529966193}
+  m_Layer: 8
   m_Name: FireChaserProjectile (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,6 +115,53 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1803616648743666130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1617871394468885606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1353b88a32d897a438d490d3e5d78f74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &5418447181529966193
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1617871394468885606}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.00000047683716}
+  serializedVersion: 2
+  m_Radius: 0.4
 --- !u!1 &1720417985367299327
 GameObject:
   m_ObjectHideFlags: 0
@@ -171,6 +220,7 @@ MonoBehaviour:
   parentFollowBehavior: 0
   bulletSpeed: 20
   firerate: 0.1
+  bulletDamage: 10
   bulletSpread: 0
   bulletSpreadAmount: 0.1
   destoryAfterDelay: 0
@@ -213,7 +263,9 @@ GameObject:
   - component: {fileID: 985735369968471652}
   - component: {fileID: 7990011458571916508}
   - component: {fileID: 5684085211855023028}
-  m_Layer: 0
+  - component: {fileID: 2855648544943760956}
+  - component: {fileID: 3470221570297293922}
+  m_Layer: 8
   m_Name: FireChaserProjectile (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -315,6 +367,53 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &2855648544943760956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1750771639054253491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1353b88a32d897a438d490d3e5d78f74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &3470221570297293922
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1750771639054253491}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.00000023841858}
+  serializedVersion: 2
+  m_Radius: 0.4
 --- !u!1 &3267952180141712792
 GameObject:
   m_ObjectHideFlags: 0
@@ -326,7 +425,9 @@ GameObject:
   - component: {fileID: 4426646469022552740}
   - component: {fileID: 7042930038490880388}
   - component: {fileID: 6581556520265190836}
-  m_Layer: 0
+  - component: {fileID: 8486277301132049601}
+  - component: {fileID: 7489417953932314804}
+  m_Layer: 8
   m_Name: FireChaserProjectile (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -428,6 +529,53 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &8486277301132049601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3267952180141712792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1353b88a32d897a438d490d3e5d78f74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &7489417953932314804
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3267952180141712792}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 2.842171e-14, y: -0.0000009536743}
+  serializedVersion: 2
+  m_Radius: 0.4
 --- !u!1 &3706089308919387255
 GameObject:
   m_ObjectHideFlags: 0
@@ -439,7 +587,9 @@ GameObject:
   - component: {fileID: 1221667311817944711}
   - component: {fileID: 9068305898429965890}
   - component: {fileID: 1787477466495236552}
-  m_Layer: 0
+  - component: {fileID: 8043136150778252490}
+  - component: {fileID: 3280890695446972927}
+  m_Layer: 8
   m_Name: FireChaserProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -541,6 +691,53 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &8043136150778252490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3706089308919387255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1353b88a32d897a438d490d3e5d78f74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &3280890695446972927
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3706089308919387255}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.4
 --- !u!1 &3764496007870388686
 GameObject:
   m_ObjectHideFlags: 0
@@ -552,7 +749,9 @@ GameObject:
   - component: {fileID: 7236991413008967930}
   - component: {fileID: 820124921823096846}
   - component: {fileID: 9214942036846043019}
-  m_Layer: 0
+  - component: {fileID: 2812069448032960568}
+  - component: {fileID: 4893115828235643170}
+  m_Layer: 8
   m_Name: FireChaserProjectile (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -654,6 +853,53 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &2812069448032960568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3764496007870388686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1353b88a32d897a438d490d3e5d78f74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &4893115828235643170
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3764496007870388686}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.0000014305115}
+  serializedVersion: 2
+  m_Radius: 0.4
 --- !u!1 &5578113127475127602
 GameObject:
   m_ObjectHideFlags: 0
@@ -665,7 +911,9 @@ GameObject:
   - component: {fileID: 1718006744620685534}
   - component: {fileID: 2358319992062869017}
   - component: {fileID: 1898084674729337800}
-  m_Layer: 0
+  - component: {fileID: 6463542251279363389}
+  - component: {fileID: 7035004124891890297}
+  m_Layer: 8
   m_Name: FireChaserProjectile (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -767,6 +1015,53 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &6463542251279363389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5578113127475127602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1353b88a32d897a438d490d3e5d78f74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &7035004124891890297
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5578113127475127602}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.00000047683716}
+  serializedVersion: 2
+  m_Radius: 0.4
 --- !u!1 &7188012970297466515
 GameObject:
   m_ObjectHideFlags: 0
@@ -778,7 +1073,9 @@ GameObject:
   - component: {fileID: 1089975702364495660}
   - component: {fileID: 4433524444520453211}
   - component: {fileID: 2302342646143466461}
-  m_Layer: 0
+  - component: {fileID: 8595336921123360375}
+  - component: {fileID: 3656992757799916454}
+  m_Layer: 8
   m_Name: FireChaserProjectile (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -880,6 +1177,53 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &8595336921123360375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7188012970297466515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1353b88a32d897a438d490d3e5d78f74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &3656992757799916454
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7188012970297466515}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.0000014305115}
+  serializedVersion: 2
+  m_Radius: 0.4
 --- !u!1 &8776992708671817090
 GameObject:
   m_ObjectHideFlags: 0
@@ -891,7 +1235,9 @@ GameObject:
   - component: {fileID: 3386317143717055511}
   - component: {fileID: 4068486062264244189}
   - component: {fileID: 5200472970001712442}
-  m_Layer: 0
+  - component: {fileID: 5320155263095124569}
+  - component: {fileID: 7418720984213243064}
+  m_Layer: 8
   m_Name: FireChaserProjectile (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -993,3 +1339,50 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &5320155263095124569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8776992708671817090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1353b88a32d897a438d490d3e5d78f74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &7418720984213243064
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8776992708671817090}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 7.1054274e-15, y: -0.00000017881393}
+  serializedVersion: 2
+  m_Radius: 0.4

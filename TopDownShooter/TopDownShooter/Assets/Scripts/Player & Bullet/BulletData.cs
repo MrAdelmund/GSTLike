@@ -9,6 +9,7 @@ public class BulletData : MonoBehaviour
     public bool parentFollowBehavior = false;
     public float bulletSpeed = 15;
     public float firerate = 0.1f;
+    public int bulletDamage = 5;
     public bool bulletSpread = false;
     public float bulletSpreadAmount = 0.1f;
     [SerializeField] bool destoryAfterDelay;

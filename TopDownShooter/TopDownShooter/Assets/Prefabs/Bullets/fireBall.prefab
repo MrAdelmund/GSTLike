@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -710999127934330130}
   - component: {fileID: -4669713426896250317}
   - component: {fileID: 6447492181057187652}
+  - component: {fileID: 7769751951642436412}
   m_Layer: 8
   m_Name: fireBall
   m_TagString: Untagged
@@ -181,6 +182,7 @@ MonoBehaviour:
   parentFollowBehavior: 0
   bulletSpeed: 20
   firerate: 0.25
+  bulletDamage: 50
   bulletSpread: 0
   bulletSpreadAmount: 0
   destoryAfterDelay: 1
@@ -199,3 +201,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabToSpawn: {fileID: 390663335913122499, guid: 0d7fea378332c30478783280c6b46df9,
     type: 3}
+--- !u!114 &7769751951642436412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2078439556668251974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1353b88a32d897a438d490d3e5d78f74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -1558137633795517311}
   - component: {fileID: -2867324254623222506}
   - component: {fileID: 2083576395982049951}
+  - component: {fileID: 251441365842132600}
   m_Layer: 8
   m_Name: StrongFire
   m_TagString: Untagged
@@ -204,7 +205,20 @@ MonoBehaviour:
   parentFollowBehavior: 1
   bulletSpeed: 12
   firerate: 0.1
+  bulletDamage: 50
   bulletSpread: 0
   bulletSpreadAmount: 0.1
   destoryAfterDelay: 1
   destroyAfterTime: 0.5
+--- !u!114 &251441365842132600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2078439556668251974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1353b88a32d897a438d490d3e5d78f74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

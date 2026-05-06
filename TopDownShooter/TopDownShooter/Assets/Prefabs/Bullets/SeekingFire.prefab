@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 5213284738770062257}
   - component: {fileID: 2155278361093211012}
   - component: {fileID: 4320128418856650803}
+  - component: {fileID: 5536024271764184214}
   m_Layer: 8
   m_Name: SeekingFire
   m_TagString: Untagged
@@ -164,7 +165,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 646079dd0bc3ad948a94ef117008cdf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 10
   bulletData: {fileID: 2155278361093211012}
 --- !u!114 &5213284738770062257
 MonoBehaviour:
@@ -180,6 +180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   instant: 0
+  turnSpeed: 1
 --- !u!114 &2155278361093211012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,8 +195,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLightsaber: 0
   isChaserFire: 0
+  parentFollowBehavior: 0
   bulletSpeed: 10
   firerate: 0.1
+  bulletDamage: 5
+  bulletSpread: 0
+  bulletSpreadAmount: 0.1
   destoryAfterDelay: 1
   destroyAfterTime: 5
 --- !u!114 &4320128418856650803
@@ -208,5 +213,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 460a905c10765ce42a75d6d30073869e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HitExplodePrefab: {fileID: 0}
+--- !u!114 &5536024271764184214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2078439556668251974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1353b88a32d897a438d490d3e5d78f74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

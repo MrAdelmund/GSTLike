@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: -3619296799923221005}
   - component: {fileID: 1368508847297666624}
   - component: {fileID: 5792978922044392946}
+  - component: {fileID: 266002840248224464}
   m_Layer: 8
   m_Name: seeking_bullet
   m_TagString: Untagged
@@ -197,6 +198,7 @@ MonoBehaviour:
   parentFollowBehavior: 0
   bulletSpeed: 15
   firerate: 0.05
+  bulletDamage: 15
   bulletSpread: 1
   bulletSpreadAmount: 0.7
   destoryAfterDelay: 1
@@ -211,5 +213,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 460a905c10765ce42a75d6d30073869e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HitExplodePrefab: {fileID: 0}
+--- !u!114 &266002840248224464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2078439556668251974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1353b88a32d897a438d490d3e5d78f74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

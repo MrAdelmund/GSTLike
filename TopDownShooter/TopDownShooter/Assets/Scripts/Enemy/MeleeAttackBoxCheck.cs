@@ -36,7 +36,7 @@ public class MeleeAttackBoxCheck : MonoBehaviour
         //checks if it collided with a player and applies dammage accordingly
         if (collision.GetComponent<PlayerHealth>() != null)
         {
-            collision.GetComponent<PlayerHealth>().TakeDammage(attackDammage);
+            collision.GetComponent<PlayerHealth>().TakeDamage(attackDammage);
             meleeEnemyManager.AttackHit();
         }
     }

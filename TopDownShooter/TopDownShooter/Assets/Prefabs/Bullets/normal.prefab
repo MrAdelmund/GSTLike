@@ -13,8 +13,10 @@ GameObject:
   - component: {fileID: 8192666231021101420}
   - component: {fileID: 9029014827583108606}
   - component: {fileID: -710999127934330130}
-  - component: {fileID: 5638158402045282337}
   - component: {fileID: -8268007600806666466}
+  - component: {fileID: -7241111007494696754}
+  - component: {fileID: 3360145820083562979}
+  - component: {fileID: 1402514280781865105}
   m_Layer: 8
   m_Name: normal
   m_TagString: Untagged
@@ -163,20 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 646079dd0bc3ad948a94ef117008cdf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 20
   bulletData: {fileID: -8268007600806666466}
---- !u!114 &5638158402045282337
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2078439556668251974}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 460a905c10765ce42a75d6d30073869e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &-8268007600806666466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,7 +180,48 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isLightsaber: 0
   isChaserFire: 0
+  parentFollowBehavior: 0
   bulletSpeed: 20
   firerate: 0.1
+  bulletDamage: 15
+  bulletSpread: 0
+  bulletSpreadAmount: 0.1
   destoryAfterDelay: 1
   destroyAfterTime: 2
+--- !u!114 &-7241111007494696754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2078439556668251974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1353b88a32d897a438d490d3e5d78f74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3360145820083562979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2078439556668251974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1353b88a32d897a438d490d3e5d78f74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1402514280781865105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2078439556668251974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 460a905c10765ce42a75d6d30073869e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HitExplodePrefab: {fileID: 0}

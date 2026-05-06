@@ -13,6 +13,7 @@ public class RangedEnemyManager : MonoBehaviour
     [SerializeField] ContactFilter2D groundCheckContactFilter;
     [Header("References")]
     [SerializeField] GameObject bulletPrefab;
+    [SerializeField] Transform firePointTrans;
     [SerializeField] BoxCollider2D jumpCheckBoxL;
     [SerializeField] BoxCollider2D jumpCheckBoxR;
     Animator animator;
@@ -22,6 +23,7 @@ public class RangedEnemyManager : MonoBehaviour
     bool isGrounded => rb.IsTouching(groundCheckContactFilter);
     bool properlyStandingStill;
     int inproperlyStandingStillFor;
+    float shootDir = 0;
     float stopMovingTimer = 0;
     float cantAttackFor = 0;
     void Start()
@@ -74,12 +76,14 @@ public class RangedEnemyManager : MonoBehaviour
         {
             movedir = 1;
             spr.flipX = true;
+            shootDir = 1;
             properlyStandingStill = false;
         }
         else if (player.transform.position.x - transform.position.x < -0.05)
         {
             movedir = -1;
             spr.flipX = false;
+            shootDir = -1;
             properlyStandingStill = false;
         }
         else
@@ -120,10 +124,13 @@ public class RangedEnemyManager : MonoBehaviour
     {
         cantAttackFor = attackCooldown;
         animator.SetBool("Attacking", true);
+        
     }
     //this is called by an animation event on the enemie's sprite object
     public void Attack()
     {
         animator.SetBool("Attacking", false);
+        GameObject bullet = Instantiate(bulletPrefab, firePointTrans.position, firePointTrans.rotation);
+        bullet.transform.up = new Vector2(shootDir, 0);
     }
 }

@@ -58,6 +58,7 @@ MonoBehaviour:
   parentFollowBehavior: 0
   bulletSpeed: 12
   firerate: 0.1
+  bulletDamage: 15
   bulletSpread: 0
   bulletSpreadAmount: 0.1
   destoryAfterDelay: 1
@@ -89,6 +90,7 @@ GameObject:
   - component: {fileID: 3244752119933163230}
   - component: {fileID: 6236997271786889873}
   - component: {fileID: 5872983359370711799}
+  - component: {fileID: 1264794972933049473}
   m_Layer: 8
   m_Name: fire
   m_TagString: Untagged
@@ -260,6 +262,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1264794972933049473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1635498310570541694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1353b88a32d897a438d490d3e5d78f74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2195184223106288538
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,6 +288,7 @@ GameObject:
   - component: {fileID: 605042052412658654}
   - component: {fileID: 6793458757045791951}
   - component: {fileID: 3273772373863322864}
+  - component: {fileID: 5500371303422846415}
   m_Layer: 8
   m_Name: fire (6)
   m_TagString: Untagged
@@ -445,6 +460,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5500371303422846415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2195184223106288538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1353b88a32d897a438d490d3e5d78f74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3130083105094990655
 GameObject:
   m_ObjectHideFlags: 0
@@ -459,6 +486,7 @@ GameObject:
   - component: {fileID: 8275575251910868528}
   - component: {fileID: 8091712674024103482}
   - component: {fileID: 1164958315193153505}
+  - component: {fileID: 6441157145669700106}
   m_Layer: 8
   m_Name: fire (3)
   m_TagString: Untagged
@@ -630,6 +658,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6441157145669700106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3130083105094990655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1353b88a32d897a438d490d3e5d78f74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3855532827861910613
 GameObject:
   m_ObjectHideFlags: 0
@@ -644,6 +684,7 @@ GameObject:
   - component: {fileID: 7220093680096811157}
   - component: {fileID: 2777965534833135645}
   - component: {fileID: 8441972571479881042}
+  - component: {fileID: 6816632848828596332}
   m_Layer: 8
   m_Name: fire (4)
   m_TagString: Untagged
@@ -815,6 +856,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6816632848828596332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3855532827861910613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1353b88a32d897a438d490d3e5d78f74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5071361304630510688
 GameObject:
   m_ObjectHideFlags: 0
@@ -829,6 +882,7 @@ GameObject:
   - component: {fileID: 3643808964318513911}
   - component: {fileID: 3640009026607847805}
   - component: {fileID: 3117094789287678943}
+  - component: {fileID: 4262393455029933049}
   m_Layer: 8
   m_Name: fire (1)
   m_TagString: Untagged
@@ -1000,6 +1054,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4262393455029933049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5071361304630510688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1353b88a32d897a438d490d3e5d78f74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6804402567967255273
 GameObject:
   m_ObjectHideFlags: 0
@@ -1014,6 +1080,7 @@ GameObject:
   - component: {fileID: 7149691598922370747}
   - component: {fileID: 3930365689923571536}
   - component: {fileID: 4913286551620269886}
+  - component: {fileID: 5343677325763486681}
   m_Layer: 8
   m_Name: fire (5)
   m_TagString: Untagged
@@ -1185,6 +1252,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5343677325763486681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6804402567967255273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1353b88a32d897a438d490d3e5d78f74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7086841532845344437
 GameObject:
   m_ObjectHideFlags: 0
@@ -1199,6 +1278,7 @@ GameObject:
   - component: {fileID: 7827750781205431782}
   - component: {fileID: 8492225414146364654}
   - component: {fileID: 6372766391650272729}
+  - component: {fileID: 2910432870173721505}
   m_Layer: 8
   m_Name: fire (2)
   m_TagString: Untagged
@@ -1370,6 +1450,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2910432870173721505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7086841532845344437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1353b88a32d897a438d490d3e5d78f74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8203716954082767047
 GameObject:
   m_ObjectHideFlags: 0
@@ -1384,6 +1476,7 @@ GameObject:
   - component: {fileID: 7801359736050250253}
   - component: {fileID: 5150369764421507442}
   - component: {fileID: 4398634601616491627}
+  - component: {fileID: 1426633564916154995}
   m_Layer: 8
   m_Name: fire (7)
   m_TagString: Untagged
@@ -1555,3 +1648,15 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1426633564916154995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8203716954082767047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1353b88a32d897a438d490d3e5d78f74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
