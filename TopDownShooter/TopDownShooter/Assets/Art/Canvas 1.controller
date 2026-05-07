@@ -48,7 +48,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: LevelClearOffAnim
-  m_Speed: 0.1
+  m_Speed: 0
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -4622786930623886085}
@@ -100,10 +100,10 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: -8312023221130888121}
-    m_Position: {x: 480, y: 20, z: 0}
+    m_Position: {x: 600, y: 40, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -4854947546539967294}
-    m_Position: {x: 260, y: 120, z: 0}
+    m_Position: {x: 340, y: 80, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions:
