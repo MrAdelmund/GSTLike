@@ -3654,13 +3654,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7605398120233113007, guid: c0e05c13973871c4b92895d7cc05d60e,
         type: 3}
-      propertyPath: spawnInterval
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7605398120233113007, guid: c0e05c13973871c4b92895d7cc05d60e,
-        type: 3}
-      propertyPath: horizontalSpawnDist
-      value: 17
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8413652537752778475, guid: c0e05c13973871c4b92895d7cc05d60e,
         type: 3}
