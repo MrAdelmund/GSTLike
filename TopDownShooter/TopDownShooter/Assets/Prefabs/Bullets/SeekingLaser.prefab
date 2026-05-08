@@ -255,4 +255,4 @@ MonoBehaviour:
   bulletSpread: 0
   bulletSpreadAmount: 0.1
   destoryAfterDelay: 1
-  destroyAfterTime: 5
+  destroyAfterTime: 2

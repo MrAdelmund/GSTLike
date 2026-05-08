@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnInterval: 1
-  horizontalSpawnDist: 17
+  horizontalSpawnDist: 15
   verticalSpawnDist: 3
   meleeEnemyPrefab: {fileID: 1449649917328922685, guid: 5eef60bce89118945a98752826109e03,
     type: 3}
