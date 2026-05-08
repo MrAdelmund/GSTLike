@@ -78,6 +78,7 @@ public class EnemySpawner : MonoBehaviour
         rangedEnemySpawnBacklog = 0;
         meleeEnemySpawnBacklog = 0;
     }
+    //shows the positons of the enemy spawn points in the editor
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireCube(new Vector2(horizontalSpawnDist, verticalSpawnDist), Vector2.one);

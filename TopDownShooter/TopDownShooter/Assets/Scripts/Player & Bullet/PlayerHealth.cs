@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] int startingVatality = 100;
     [SerializeField] float iFrameTimeGrantedWhenHit = 0.5f;
+    [SerializeField] TextMeshProUGUI textToUpdate;
     int currentLives = 0;
     float iFrames = 0;
     void Start()
@@ -18,6 +20,7 @@ public class PlayerHealth : MonoBehaviour
             PlayerPrefs.SetInt("Vitality", startingVatality);
             currentLives = startingVatality;
         }
+        textToUpdate.text = currentLives.ToString();
     }
     void Update()
     {
@@ -32,12 +35,13 @@ public class PlayerHealth : MonoBehaviour
             currentLives -= amountOfDammage;
             iFrames = iFrameTimeGrantedWhenHit;
         }
-        Debug.Log(currentLives);
+        textToUpdate.text = currentLives.ToString();
     }
     //gets called by health containers when picked up
     public void GainHealth(int amountOfHealthToGain)
     {
         currentLives += amountOfHealthToGain;
+        textToUpdate.text = currentLives.ToString();
     }
     //gets called by menu when level is complete
     public void UpdateSavedPlayerHealth()

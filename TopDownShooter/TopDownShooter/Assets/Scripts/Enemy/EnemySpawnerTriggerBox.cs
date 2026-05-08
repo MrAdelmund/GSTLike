@@ -18,7 +18,6 @@ public class EnemySpawnerTriggerBox : MonoBehaviour
         if (!ran && collision.gameObject.tag == "Player")
         {
             ran = true;
-            Debug.Log("im runningggggggggg :3");
             if (addToEnemySpawnQueue)
                 EnemySpawner.AddToEnemySpawnQueue(amountOfRangedEnemiesToAdd, amountOfMeleeEnemiesToAdd);
             if (pauseEnemySpawning)
