@@ -7,7 +7,6 @@ public class PauseMenuControler : MonoBehaviour
 {
     [SerializeField] Animator animatorForAnimation;
     static bool pauseMenuCanOpen = true;
-    bool menuButtonPressed = false;
     Canvas canvas;
     bool toggeledOn = false;
 
@@ -19,26 +18,27 @@ public class PauseMenuControler : MonoBehaviour
     }
     public void TogglePauseMenu(InputAction.CallbackContext context)
     {
-        if (context.performed)
-            toggeledOn = !toggeledOn;
-        if (toggeledOn)
-            Pause();
-        else
-            Resume();
+        if (pauseMenuCanOpen)
+        {
+            if (context.performed)
+                toggeledOn = !toggeledOn;
+            if (toggeledOn)
+                Pause();
+            else
+                Resume();
+        }
     }
     void Pause()
     {
         canvas.enabled = true;
         Time.timeScale = 0;
         animatorForAnimation.enabled = true;
-
     }
     public void Resume()
     {
         canvas.enabled = false;
         Time.timeScale = 1;
         animatorForAnimation.enabled = false;
-
     }
     public void Restart()
     {
