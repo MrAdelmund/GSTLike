@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PauseMenuControler : MonoBehaviour
 {
@@ -18,6 +20,7 @@ public class PauseMenuControler : MonoBehaviour
     }
     public void TogglePauseMenu(InputAction.CallbackContext context)
     {
+        //gets called when player presses pause button, and flips the current state of the menu
         if (pauseMenuCanOpen)
         {
             if (context.performed)
@@ -32,22 +35,30 @@ public class PauseMenuControler : MonoBehaviour
     {
         canvas.enabled = true;
         Time.timeScale = 0;
+        //toggles on menu animation
         animatorForAnimation.enabled = true;
     }
     public void Resume()
     {
         canvas.enabled = false;
         Time.timeScale = 1;
+        //toggles off menu animation
         animatorForAnimation.enabled = false;
+        //resets bool to keep stuff synced
+        toggeledOn = false;
     }
     public void Restart()
     {
-
+        Time.timeScale = 1;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     public void ReturnToMenu()
     {
-
+        Time.timeScale = 1;
+        SceneManager.LoadScene("MainMenu");
     }
+    //These are functions that can be called from anywhere without an object
+    //reference, to disable/enable the player's ability to open the pause menu.
     public static void DisablePauseMenuOpening()
     {
         pauseMenuCanOpen = false;
