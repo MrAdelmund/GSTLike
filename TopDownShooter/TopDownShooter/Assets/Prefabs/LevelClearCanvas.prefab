@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5617940046291490911}
   - component: {fileID: 1840008550383382318}
   - component: {fileID: 7471930817996941940}
-  - component: {fileID: 6947078871829698897}
+  - component: {fileID: 7215361855936562453}
   m_Layer: 5
   m_Name: LevelClearCanvas
   m_TagString: Untagged
@@ -106,27 +106,25 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!95 &6947078871829698897
-Animator:
-  serializedVersion: 5
+--- !u!114 &7215361855936562453
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 114022492217937304}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c53591052bac2564d8bdc7409122d380, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cd77d40b55ce294580b61d582910eba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textSlideInSpeed: 10
+  backgroundFadeInSpeed: 4
+  buttonFadeInSpeed: 2
+  backGroundFadeIn: {fileID: 3083736656435024412}
+  textSlideIn1: {fileID: 7428353371694513185}
+  textSlideIn2: {fileID: 7461153309844959203}
+  buttonFadeIn: {fileID: 2647116555005999366}
 --- !u!1 &4831980515670318531
 GameObject:
   m_ObjectHideFlags: 0
