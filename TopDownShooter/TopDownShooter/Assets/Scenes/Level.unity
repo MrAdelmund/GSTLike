@@ -139585,6 +139585,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1675693578}
   - component: {fileID: 1675693577}
+  - component: {fileID: 1675693579}
   m_Layer: 0
   m_Name: LevelClearTrigger
   m_TagString: Untagged
@@ -139652,6 +139653,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1675693579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675693576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98e3a0aab1a099a4aba16bad56d5832b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1684562062
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -141709,11 +141722,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseMenuCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 5442463527653520824, guid: 9ab20465dc6e265438b13485771ea474,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7219798322861930127, guid: 9ab20465dc6e265438b13485771ea474,
         type: 3}
       propertyPath: m_Pivot.x
@@ -141930,11 +141938,6 @@ PrefabInstance:
     - target: {fileID: 2021879581677192999, guid: eb820295b8eae564ab799536c09f0df0,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5617940046291490911, guid: eb820295b8eae564ab799536c09f0df0,
-        type: 3}
-      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
