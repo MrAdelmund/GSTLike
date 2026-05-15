@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level.unity
     guid: 37b11d68d5eaca047b2164de7c1117e1
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: f0203ba2d486bcf4b9312ce9fc36c994
   m_configObjects: {}
