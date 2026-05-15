@@ -32,15 +32,15 @@ public class PlayerMovement : MonoBehaviour
         if (!firePressed)
         {
             Vector2 vel = rb.velocity;
-            if (moveInputX == 0)
-            {
-                vel.x = 0;
-            } else if (moveInputX > 0)
+            if (moveInputX > 0.5)
             {
                 vel.x = moveSpeed;
-            } else if (moveInputX < 0)
+            } else if (moveInputX < -0.5)
             {
                 vel.x = -moveSpeed;
+            } else
+            {
+                vel.x = 0;
             }
             rb.velocity = vel;
         }else if (firePressed && isGrounded)

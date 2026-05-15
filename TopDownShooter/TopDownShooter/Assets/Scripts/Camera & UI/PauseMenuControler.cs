@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
@@ -11,12 +12,14 @@ public class PauseMenuControler : MonoBehaviour
     static bool pauseMenuCanOpen = true;
     Canvas canvas;
     bool toggeledOn = false;
+    EventSystem eventSystem;
 
     void Start()
     {
         canvas = GetComponent<Canvas>();
         canvas.enabled = false;
         animatorForAnimation.enabled = false;
+        eventSystem = GameObject.FindGameObjectWithTag("EventSystem").GetComponent<EventSystem>();
     }
     public void TogglePauseMenu(InputAction.CallbackContext context)
     {
@@ -37,6 +40,7 @@ public class PauseMenuControler : MonoBehaviour
         Time.timeScale = 0;
         //toggles on menu animation
         animatorForAnimation.enabled = true;
+        eventSystem.sendNavigationEvents = true;
     }
     public void Resume()
     {
@@ -46,6 +50,7 @@ public class PauseMenuControler : MonoBehaviour
         animatorForAnimation.enabled = false;
         //resets bool to keep stuff synced
         toggeledOn = false;
+        eventSystem.sendNavigationEvents = false;
     }
     public void Restart()
     {

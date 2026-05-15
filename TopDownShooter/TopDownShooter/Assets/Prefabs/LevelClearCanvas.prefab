@@ -118,8 +118,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cd77d40b55ce294580b61d582910eba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textSlideInSpeed: 10
-  backgroundFadeInSpeed: 4
+  sceneToLoadWhenClicked: 1
+  textSlideInSpeed: 5
+  backgroundFadeInSpeed: 2
   buttonFadeInSpeed: 2
   backGroundFadeIn: {fileID: 3083736656435024412}
   textSlideIn1: {fileID: 7428353371694513185}
@@ -726,13 +727,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 7215361855936562453}
+        m_TargetAssemblyTypeName: LevelClearControler, Assembly-CSharp
+        m_MethodName: LoadScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
