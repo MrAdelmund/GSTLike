@@ -12,27 +12,16 @@ public class PauseMenuControler : MonoBehaviour
     static bool pauseMenuCanOpen = true;
     Canvas canvas;
     bool toggeledOn = false;
-    EventSystem eventSystem;
-
+    static CanvasGroup canvasGroup;
     void Start()
     {
+        //component retrieval
         canvas = GetComponent<Canvas>();
+        canvasGroup = GetComponent<CanvasGroup>();
         canvas.enabled = false;
         animatorForAnimation.enabled = false;
-        eventSystem = GameObject.FindGameObjectWithTag("EventSystem").GetComponent<EventSystem>();
-    }
-    public void TogglePauseMenu(InputAction.CallbackContext context)
-    {
-        //gets called when player presses pause button, and flips the current state of the menu
-        if (pauseMenuCanOpen)
-        {
-            if (context.performed)
-                toggeledOn = !toggeledOn;
-            if (toggeledOn)
-                Pause();
-            else
-                Resume();
-        }
+        //makes canvas not interactable
+        canvasGroup.interactable = false;
     }
     void Pause()
     {
@@ -40,7 +29,8 @@ public class PauseMenuControler : MonoBehaviour
         Time.timeScale = 0;
         //toggles on menu animation
         animatorForAnimation.enabled = true;
-        eventSystem.sendNavigationEvents = true;
+        //makes canvas interactable
+        canvasGroup.interactable = true;
     }
     public void Resume()
     {
@@ -50,7 +40,8 @@ public class PauseMenuControler : MonoBehaviour
         animatorForAnimation.enabled = false;
         //resets bool to keep stuff synced
         toggeledOn = false;
-        eventSystem.sendNavigationEvents = false;
+        //makes canvas not interactable
+        canvasGroup.interactable = false;
     }
     public void Restart()
     {
@@ -70,6 +61,19 @@ public class PauseMenuControler : MonoBehaviour
     }
     public static void EnablePauseMenuOpening()
     {
-        pauseMenuCanOpen = false;
+        pauseMenuCanOpen = true;
+    }
+    public void TogglePauseMenu(InputAction.CallbackContext context)
+    {
+        //gets called when player presses pause button, and flips the current state of the menu
+        if (pauseMenuCanOpen)
+        {
+            if (context.performed)
+                toggeledOn = !toggeledOn;
+            if (toggeledOn)
+                Pause();
+            else
+                Resume();
+        }
     }
 }

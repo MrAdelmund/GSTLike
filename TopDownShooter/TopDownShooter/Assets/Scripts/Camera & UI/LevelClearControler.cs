@@ -18,57 +18,69 @@ public class LevelClearControler : MonoBehaviour
     [SerializeField] Image buttonFadeIn;
     static Canvas canvas;
     static bool runLevelClearAnimation = false;
-    static GameObject buttonRef;
     Vector2 textSlideIn1StartPosition;
     Vector2 textSlideIn2StartPosition;
     TextMeshProUGUI buttonTextFadeIn;
-    //value storage
+    static CanvasGroup canvasGroup;
     int animationStage = 0;
-    float bgFadeAlpha = 0;
-    static EventSystem eventSystem;
     void Start()
     {
+        //component retrieval
         canvas = GetComponent<Canvas>();
-        canvas.enabled = false;
+        canvasGroup = GetComponent<CanvasGroup>();
         buttonTextFadeIn = buttonFadeIn.GetComponentInChildren<TextMeshProUGUI>();
+        //gets starting positions of text & sets their offsets
         textSlideIn1StartPosition = textSlideIn1.transform.position;
         textSlideIn2StartPosition = textSlideIn2.transform.position;
         textSlideIn1.transform.position = new Vector2(textSlideIn1.transform.position.x, textSlideIn1.transform.position.y + 700);
         textSlideIn2.transform.position = new Vector2(textSlideIn2.transform.position.x, textSlideIn2.transform.position.y - 700);
+        //set UI elements to be transparent
         backGroundFadeIn.color = new Color(backGroundFadeIn.color.r, backGroundFadeIn.color.g, backGroundFadeIn.color.b, 0);
         buttonFadeIn.color = new Color(1, 1, 1, 0);
         buttonTextFadeIn.color = new Color(1, 1, 1, 0);
-        eventSystem = GameObject.FindGameObjectWithTag("EventSystem").GetComponent<EventSystem>();
-        buttonRef = buttonFadeIn.gameObject;
+        //makes canvas not interactable
+        canvasGroup.interactable = false;
+
+        //READ ME
+        //Disables canvase on start. The canvas component NEEDS to be enabled, or position retrieval will return incorrect values.
+        canvas.enabled = false;
     }
     public void LoadScene()
     {
         Time.timeScale = 1;
         SceneManager.LoadScene(sceneToLoadWhenClicked);
-        Debug.Log("loaded scene " + sceneToLoadWhenClicked);
     }
     public static void TriggerLevelClearScrene()
     {
+        //diables the pause menu from being opened
         PauseMenuControler.DisablePauseMenuOpening();
         canvas.enabled = true;
         Time.timeScale = 0;
+        //starts animation
         runLevelClearAnimation = true;
-        eventSystem.sendNavigationEvents = true;
-        eventSystem.firstSelectedGameObject = buttonRef;
-        Debug.Log("im running");
+        //makes canvas interactable
+        canvasGroup.interactable = true;
     }
     private void Update()
     {
+        LevelClearScreenAnimation();
+    }
+    void LevelClearScreenAnimation()
+    {
+        //The level clear screen animation is fully animated via code
         if (runLevelClearAnimation)
         {
+            //animation stage variable is what determins what part of the animation is currently being played
             if (animationStage == 0)
             {
+                //background fade in
                 backGroundFadeIn.color = new Color(backGroundFadeIn.color.r, backGroundFadeIn.color.g, backGroundFadeIn.color.b, backGroundFadeIn.color.a + (backgroundFadeInSpeed * Time.unscaledDeltaTime));
                 if (backGroundFadeIn.color.a >= 1)
                     animationStage++;
             }
             else if (animationStage == 1)
             {
+                //"LEVEL" & "CLEAR" text slide in
                 textSlideIn1.transform.position = Vector2.MoveTowards(textSlideIn1.transform.position, textSlideIn1StartPosition, textSlideInSpeed * Time.unscaledDeltaTime * 100);
                 textSlideIn2.transform.position = Vector2.MoveTowards(textSlideIn2.transform.position, textSlideIn2StartPosition, textSlideInSpeed * Time.unscaledDeltaTime * 100);
                 if (Vector2.Distance(textSlideIn1.transform.position, textSlideIn1StartPosition) == 0)
@@ -76,6 +88,7 @@ public class LevelClearControler : MonoBehaviour
             }
             else if (animationStage == 2)
             {
+                //button & button text fade in
                 Color currentColor = new Color(1, 1, 1, buttonFadeIn.color.a + buttonFadeInSpeed * Time.unscaledDeltaTime);
                 buttonFadeIn.color = currentColor;
                 buttonTextFadeIn.color = currentColor;

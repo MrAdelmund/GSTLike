@@ -149,6 +149,7 @@ GameObject:
   - component: {fileID: 1392053372939638157}
   - component: {fileID: 1391502479002044224}
   - component: {fileID: 7632464386215020911}
+  - component: {fileID: 5040337137659866239}
   m_Layer: 5
   m_Name: PauseMenuCanvas
   m_TagString: Untagged
@@ -305,26 +306,34 @@ MonoBehaviour:
     m_ActionId: ee9be4b6-3c37-4eff-a758-7f3adf98e2e2
     m_ActionName: Gameplay/SwitchSelectedWeapon[/Keyboard/tab,/XInputControllerWindows/rightShoulder]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1391502479002044224}
-        m_TargetAssemblyTypeName: PauseMenuControler, Assembly-CSharp
-        m_MethodName: TogglePauseMenu
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 61bbebff-e671-4a46-a16c-03fe7ab8dae3
-    m_ActionName: Gameplay/OpenPauseMenu[/Keyboard/escape,/XInputControllerWindows/start]
+      m_Calls: []
+    m_ActionId: 3a77eb2c-1a90-49f5-ae80-0d737616afd1
+    m_ActionName: Gameplay/PauseMenuToggle[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 33e6fbca-e6b6-4e00-8267-b76d77592d3a
+    m_ActionName: UI/PauseMenuToggle[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d345dfc7-8520-49d1-8891-63d5ecfa5f8e
+    m_ActionName: UI/MenuSelect[/Keyboard/space,/Keyboard/enter]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: Gameplay
+  m_DefaultActionMap: UI
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!225 &5040337137659866239
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1857811997605356015}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1952073851342940345
 GameObject:
   m_ObjectHideFlags: 0

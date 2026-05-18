@@ -76,10 +76,12 @@ public class PlayerMovement : MonoBehaviour
     public void PlayerInputMove(InputAction.CallbackContext context)
     {
         moveInputX = context.ReadValue<Vector2>().x;
+        Debug.Log(context.ReadValue<Vector2>().x);
     }
     public void PlayerInputJump(InputAction.CallbackContext context)
     {
         jumpPressed = context.performed;
+        Debug.Log(context.performed);
     }
     public void PlayerInputFire(InputAction.CallbackContext context)
     {
